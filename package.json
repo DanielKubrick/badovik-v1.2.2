@@ -1,6 +1,6 @@
 {
   "name": "mini-woo",
-  "version": "0.1.0",
+  "version": "1.2.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,16 +9,34 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@prisma/client": "^6.16.2",
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-separator": "^1.1.7",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@radix-ui/react-toast": "^1.2.15",
+    "@shadcn/ui": "^0.0.4",
+    "@tailwindcss/line-clamp": "^0.4.4",
+    "@tailwindcss/postcss": "^4.1.13",
+    "autoprefixer": "^10.4.21",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.544.0",
     "next": "latest",
+    "postcss": "^8.5.6",
+    "prisma": "^6.16.2",
     "react": "latest",
     "react-dom": "latest",
-    "telegraf": "^4.14.0"
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^4.1.13",
+    "tailwindcss-animate": "^1.0.7",
+    "telegraf": "^4.14.0",
+    "zustand": "^5.0.8"
   },
   "devDependencies": {
-    "@types/telegram-web-app": "^6.9.1",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "@types/telegram-web-app": "^6.9.1",
     "eslint": "latest",
     "eslint-config-next": "latest",
     "typescript": "latest"

@@ -1,0 +1,10 @@
+
+> mini-woo@0.1.0 start
+> next start
+
+   ▲ Next.js 15.5.4
+   - Local:        http://localhost:3001
+   - Network:      http://168.231.125.194:3001
+
+ ✓ Starting...
+[Error: Could not find a production build in the '.next' directory. Try building your app with 'next build' before starting the production server. https://nextjs.org/docs/messages/production-start-no-build-id]

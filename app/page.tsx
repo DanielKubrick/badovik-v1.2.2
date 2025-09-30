@@ -1,0 +1,476 @@
+"use client";
+import { useRouter } from "next/navigation";
+import { useEffect, useState, useCallback, useRef } from "react";
+import { useCart } from "../components/cart/store";
+import { ShoppingCart, Filter } from "lucide-react";
+
+type Product = { 
+  id: number; 
+  name: string; 
+  price: string | number; 
+  images?: {src: string}[]; 
+  categories?: {id: number; name: string}[];
+  stock_status?: string;
+  weight?: string;
+  sale_price?: number | null;
+  regular_price?: number;
+  price_html?: string;
+};
+
+type Category = {
+  id: number;
+  name: string;
+  count?: number;
+};
+
+const CATEGORY_TRANSLATIONS = {
+  'Misc': 'Разное',
+  'Supplements': 'Пищевые добавки', 
+  'Vitamins': 'Витамины',
+  'Minerals': 'Минералы',
+  'Antioxidants': 'Антиоксиданты',
+  'Proteins': 'Белки',
+  'Herbs': 'Травы'
+};
+
+const PRODUCTS_PER_PAGE = 20;
+
+const formatPrice = (price: number): string => {
+  if (price === 0) return 'Уточнить цену';
+  return new Intl.NumberFormat('ru-RU', {
+    style: 'currency',
+    currency: 'RUB',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2,
+  }).format(price).replace('₽', '').trim() + ' ₽';
+};
+
+const translateCategory = (name: string): string => {
+  return CATEGORY_TRANSLATIONS[name as keyof typeof CATEGORY_TRANSLATIONS] || name;
+};
+
+export default function CatalogPage() {
+  const router = useRouter();
+  const cartCount = useCart(state => state.count());
+  const [products, setProducts] = useState<Product[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<number | undefined>(undefined);
+  const [mounted, setMounted] = useState(false);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+  const [totalProducts, setTotalProducts] = useState(0);
+  const cart = useCart();
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const loadMoreRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Load categories on mount
+  useEffect(() => { 
+    if (!mounted) return;
+    
+    const loadCategories = async () => {
+      try {
+        const categoriesResponse = await fetch("/api/categories", {
+          method: "GET", 
+          headers: { "Content-Type": "application/json" }
+        });
+
+        if (!categoriesResponse.ok) {
+          throw new Error(`Categories API failed: ${categoriesResponse.status}`);
+        }
+
+        const categoriesData = await categoriesResponse.json();
+        setCategories(categoriesData.map((cat: Category) => ({
+          ...cat,
+          name: translateCategory(cat.name)
+        })));
+      } catch (err) {
+        console.error("Categories loading error:", err);
+      }
+    };
+
+    loadCategories();
+  }, [mounted]);
+
+  // Load products function
+  const loadProducts = useCallback(async (pageNum: number, reset = false) => {
+    if (reset) {
+      setLoading(true);
+      setError(null);
+    } else {
+      setLoadingMore(true);
+    }
+
+    try {
+      const params = new URLSearchParams();
+      params.set('page', pageNum.toString());
+      params.set('per_page', PRODUCTS_PER_PAGE.toString());
+      params.set('status', 'publish');
+      
+      if (selectedCategory) {
+        params.set('category', selectedCategory.toString());
+      }
+
+      const response = await fetch(`/api/products?${params.toString()}`);
+
+      if (!response.ok) {
+        throw new Error(`Products API failed: ${response.status}`);
+      }
+
+      const newProducts = await response.json();
+      const totalHeader = response.headers.get('X-WP-Total');
+      const totalFromHeader = totalHeader ? parseInt(totalHeader) : 0;
+
+      const processedProducts = newProducts.map((p: any) => ({
+        ...p,
+        price: typeof p.price === "string" ? parseFloat(p.price) || 0 : p.price
+      }));
+
+      if (reset) {
+        setProducts(processedProducts);
+        setTotalProducts(totalFromHeader);
+      } else {
+        setProducts(prev => [...prev, ...processedProducts]);
+      }
+
+      // Check if there are more pages
+      const loadedCount = reset ? processedProducts.length : products.length + processedProducts.length;
+      setHasMore(loadedCount < totalFromHeader && processedProducts.length === PRODUCTS_PER_PAGE);
+
+    } catch (err) {
+      console.error("Products loading error:", err);
+      setError(err instanceof Error ? err.message : "Unknown error");
+    } finally {
+      setLoading(false);
+      setLoadingMore(false);
+    }
+  }, [selectedCategory, products.length]);
+
+  // Initial load and reset on filter change
+  useEffect(() => {
+    if (!mounted) return;
+    
+    setProducts([]);
+    setPage(1);
+    setHasMore(true);
+    loadProducts(1, true);
+  }, [mounted, selectedCategory]);
+
+  // Intersection Observer for infinite scroll
+  useEffect(() => {
+    if (loadingMore || !hasMore || !mounted) return;
+
+    if (observerRef.current) observerRef.current.disconnect();
+
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && hasMore && !loadingMore) {
+          const nextPage = page + 1;
+          setPage(nextPage);
+          loadProducts(nextPage, false);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (loadMoreRef.current) {
+      observerRef.current.observe(loadMoreRef.current);
+    }
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, [page, hasMore, loadingMore, mounted, loadProducts]);
+
+  if (!mounted) {
+    return (
+      <div className="store-app">
+        <div className="store-loading">
+          <div className="store-loader">Загрузка...</div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="store-app">
+      {/* Header */}
+      <header className="store-header">
+        <div>
+          <h1 className="store-title">Магазин</h1>
+        </div>
+        <div className="store-header-actions">
+          <button 
+            onClick={() => router.push("/cart")}
+            className="store-cart-button"
+            aria-label={`Корзина, товаров: ${cartCount}`}
+          >
+            <ShoppingCart className="store-cart-icon" />
+            <span>Корзина</span>
+            {cartCount > 0 && <span>({cartCount})</span>}
+          </button>
+        </div>
+      </header>
+
+      {/* Categories */}
+      {categories.length > 0 && (
+        <nav className="store-categories" aria-label="Категории товаров">
+          <button 
+            onClick={() => setSelectedCategory(undefined)}
+            className={`store-category ${!selectedCategory ? "active" : ""}`}
+            aria-pressed={!selectedCategory}
+          >
+            Все товары
+          </button>
+          {categories.slice(0, 6).map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => setSelectedCategory(cat.id)}
+              className={`store-category ${selectedCategory === cat.id ? "active" : ""}`}
+              aria-pressed={selectedCategory === cat.id}
+            >
+              {cat.name}
+            </button>
+          ))}
+        </nav>
+      )}
+
+      {/* Products Count */}
+      {totalProducts > 0 && (
+        <div className="store-products-count" role="status" aria-live="polite">
+          Показано {products.length} из {totalProducts} товаров
+          {selectedCategory && (
+            <span> в выбранной категории</span>
+          )}
+        </div>
+      )}
+
+      {/* Main Content */}
+      <main>
+        {error ? (
+          <div className="store-error" role="alert">
+            <div className="store-error-icon" aria-hidden="true">⚠️</div>
+            <div className="store-error-text">Ошибка загрузки</div>
+            <div className="store-error-message">{error}</div>
+            <button 
+              onClick={() => window.location.reload()}
+              className="store-retry-btn"
+            >
+              Попробовать снова
+            </button>
+          </div>
+        ) : (
+          <section className="store-products" aria-label="Каталог товаров">
+            {loading && products.length === 0 ? (
+              // Initial loading skeletons
+              Array(12).fill(0).map((_, i) => (
+                <StoreItemSkeleton key={`skeleton-${i}`} />
+              ))
+            ) : (
+              // Actual products
+              products.map((product) => (
+                <StoreItem 
+                  key={product.id} 
+                  product={product} 
+                  onAddToCart={cart.add}
+                />
+              ))
+            )}
+
+            {/* Load More Trigger */}
+            {hasMore && (
+              <div 
+                ref={loadMoreRef} 
+                className="store-load-more-trigger"
+                aria-hidden="true"
+              />
+            )}
+
+            {/* Loading More Skeletons */}
+            {loadingMore && (
+              Array(6).fill(0).map((_, i) => (
+                <StoreItemSkeleton key={`loading-skeleton-${i}`} />
+              ))
+            )}
+
+            {/* End Message */}
+            {!hasMore && products.length > 0 && (
+              <div className="store-end-message" role="status">
+                <div className="store-end-icon" aria-hidden="true">🎉</div>
+                <div className="store-end-text">Все товары загружены</div>
+                <div className="store-end-hint">Всего: {products.length} товаров</div>
+              </div>
+            )}
+
+            {products.length === 0 && !loading && (
+              <div className="store-empty" role="status">
+                <div className="store-empty-icon" aria-hidden="true">📦</div>
+                <div className="store-empty-text">Товары не найдены</div>
+                {selectedCategory && (
+                  <button 
+                    onClick={() => setSelectedCategory(undefined)}
+                    className="store-retry-btn"
+                  >
+                    Показать все товары
+                  </button>
+                )}
+              </div>
+            )}
+          </section>
+        )}
+      </main>
+
+      {/* Sticky Cart Bar */}
+      {cart.count() > 0 && (
+        <div className="store-sticky-cart" role="banner">
+          <div className="store-cart-info">
+            <span className="store-cart-count">
+              {cart.count()} {cart.count() === 1 ? 'товар' : 'товаров'}
+            </span>
+            <span className="store-cart-total" aria-label={`Итого: ${formatPrice(cart.total())}`}>
+              {formatPrice(cart.total())}
+            </span>
+          </div>
+          <button 
+            onClick={() => router.push("/cart")}
+            className="store-cart-checkout"
+            aria-label="Перейти к оформлению заказа"
+          >
+            К оформлению
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// Store Item Component
+function StoreItem({ 
+  product, 
+  onAddToCart 
+}: { 
+  product: Product; 
+  onAddToCart: (product: any, qty?: number) => Promise<void> 
+}) {
+  const cart = useCart();
+  const router = useRouter();
+  const cartItem = cart.items[product.id];
+  const [isAdding, setIsAdding] = useState(false);
+  
+  const price = typeof product.price === "string" ? parseFloat(product.price) : product.price;
+  
+  const handleAddToCart = async () => {
+    if (isAdding) return;
+    
+    setIsAdding(true);
+    try {
+      await onAddToCart({
+        id: product.id,
+        name: product.name,
+        price: price,
+        image: product.images?.[0]?.src
+      }, 1);
+    } catch (error) {
+      console.error("Failed to add to cart:", error);
+    } finally {
+      setIsAdding(false);
+    }
+  };
+
+  const handleRemoveFromCart = () => {
+    cart.remove(product.id);
+  };
+
+  const handleItemClick = () => {
+    router.push(`/product/${product.id}`);
+  };
+
+  return (
+    <article 
+      className={`store-product ${cartItem ? "selected" : ""}`}
+      role="button"
+      tabIndex={0}
+      onClick={handleItemClick}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleItemClick();
+        }
+      }}
+      aria-label={`${product.name}, цена ${formatPrice(price)}`}
+    >
+      <div className="store-product-image-wrapper">
+        {product.images?.[0]?.src ? (
+          <img
+            src={product.images[0].src}
+            alt={product.name}
+            width={120}
+            height={120}
+            className="store-product-photo"
+            loading="lazy"
+          />
+        ) : (
+          <div className="store-product-photo store-no-image" aria-label="Нет изображения">
+            🖼️
+          </div>
+        )}
+      </div>
+      
+      <div className="store-product-label">
+        <h3 className="store-product-title">{product.name}</h3>
+        <div className="store-product-price" aria-label={`Цена: ${formatPrice(price)}`}>
+          {formatPrice(price)}
+        </div>
+      </div>
+      
+      {cartItem && (
+        <div className="store-product-counter" aria-label={`В корзине: ${cartItem.qty}`}>
+          {cartItem.qty}
+        </div>
+      )}
+      
+      <div 
+        className="store-product-buttons"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {cartItem && (
+          <button 
+            className="store-product-decr-button"
+            onClick={handleRemoveFromCart}
+            disabled={!cartItem}
+            aria-label="Удалить из корзины"
+            title="Удалить из корзины"
+          />
+        )}
+        <button 
+          className="store-product-incr-button"
+          onClick={handleAddToCart}
+          disabled={isAdding}
+          aria-label="Добавить в корзину"
+          title="Добавить в корзину"
+        >
+          <span className="button-item-label">
+            {isAdding ? '...' : cartItem ? '+' : 'В корзину'}
+          </span>
+        </button>
+      </div>
+    </article>
+  );
+}
+
+// Store Item Skeleton
+function StoreItemSkeleton() {
+  return (
+    <div className="store-product" role="presentation" aria-hidden="true">
+      <div className="store-product-skeleton"></div>
+    </div>
+  );
+}

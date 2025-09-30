@@ -1,0 +1,195 @@
+'use client'
+
+import { useEffect, useState } from 'react'
+import { useSearchParams, useRouter } from 'next/navigation'
+import { CheckCircle, CreditCard, ArrowLeft, Receipt } from 'lucide-react'
+import { getOrderFromStorage, clearOrderFromStorage, formatPrice, type OrderData } from '@/lib/order-utils'
+
+export default function OrderSuccessContent() {
+  const router = useRouter()
+  const [orderData, setOrderData] = useState<OrderData | null>(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    // Попытаемся получить данные заказа из localStorage
+    const storedOrder = getOrderFromStorage()
+    if (storedOrder) {
+      setOrderData(storedOrder)
+    }
+    setLoading(false)
+  }, [])
+
+  if (loading) {
+    return (
+      <div className="telegram-app">
+        <div className="telegram-content">
+          <div className="text-center py-20">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-2"></div>
+            <p className="text-gray-600">Загрузка...</p>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  if (!orderData) {
+    return (
+      <div className="telegram-app">
+        <div className="telegram-header">
+          <button 
+            onClick={() => router.push('/')}
+            className="telegram-back-btn"
+          >
+            <ArrowLeft size={20} />
+          </button>
+          <h1 className="telegram-header-title">Ошибка</h1>
+        </div>
+        <div className="telegram-content">
+          <div className="text-center py-20">
+            <p className="text-gray-600">Данные заказа не найдены</p>
+            <button 
+              onClick={() => router.push('/')}
+              className="telegram-primary-btn mt-4"
+            >
+              Вернуться к покупкам
+            </button>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  const handleSendReceipt = () => {
+    const paymentUrl = `https://badovik.dedyn.io/checkout/order-pay/${orderData.id}/?pay_for_order=true&key=${orderData.key}`
+    window.open(paymentUrl, '_blank')
+  }
+
+  const copyToClipboard = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text)
+      // Показать уведомление об успешном копировании
+      if (typeof window !== 'undefined' && window.Telegram?.WebApp) {
+        window.Telegram.WebApp.showAlert('Номер карты скопирован!')
+      } else {
+        // Fallback для обычного браузера
+        alert('Номер карты скопирован!')
+      }
+    } catch (err) {
+      console.error('Не удалось скопировать:', err)
+    }
+  }
+
+  const handleBackToHome = () => {
+    // Очищаем данные заказа при уходе со страницы
+    clearOrderFromStorage()
+    router.push('/')
+  }
+
+  return (
+    <div className="telegram-app">
+      {/* Header */}
+      <div className="telegram-header">
+        <button 
+          onClick={handleBackToHome}
+          className="telegram-back-btn"
+        >
+          <ArrowLeft size={20} />
+        </button>
+        <h1 className="telegram-header-title">Оплата заказа</h1>
+        <div className="telegram-header-count">
+          №{orderData.orderNumber}
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="telegram-content">
+        {/* Success Card */}
+        <div className="telegram-card telegram-success-card">
+          <div className="telegram-success-icon">
+            <CheckCircle size={32} />
+          </div>
+          <div className="telegram-success-content">
+            <h2 className="telegram-success-title">
+              Заказ успешно создан!
+            </h2>
+            <p className="telegram-success-subtitle">
+              Заказ №{orderData.orderNumber} • Сумма: <span className="telegram-price">{formatPrice(orderData.total, orderData.currency)}</span>
+            </p>
+          </div>
+        </div>
+
+        {/* Payment Instructions */}
+        <div className="telegram-card telegram-payment-card">
+          <div className="telegram-card-header">
+            <CreditCard className="telegram-card-header-icon" />
+            <h3 className="telegram-card-header-title">
+              Реквизиты для оплаты
+            </h3>
+          </div>
+          
+          <div className="telegram-payment-details">
+            {/* Card Number */}
+            <div className="telegram-payment-item">
+              <div className="telegram-payment-item-content">
+                <div className="telegram-payment-item-label">
+                  Номер карты:
+                </div>
+                <div className="telegram-payment-item-value">
+                  2200 7703 0123 4567
+                </div>
+              </div>
+              <button 
+                onClick={() => copyToClipboard('2200770301234567')}
+                className="telegram-copy-btn"
+              >
+                Копировать
+              </button>
+            </div>
+            
+            {/* Recipient */}
+            <div className="telegram-payment-item">
+              <div className="telegram-payment-item-content">
+                <div className="telegram-payment-item-label">
+                  Получатель:
+                </div>
+                <div className="telegram-payment-item-value">
+                  ИП Бадовик И.И.
+                </div>
+              </div>
+            </div>
+            
+            {/* Purpose */}
+            <div className="telegram-payment-item">
+              <div className="telegram-payment-item-content">
+                <div className="telegram-payment-item-label">
+                  Назначение платежа:
+                </div>
+                <div className="telegram-payment-item-value">
+                  Оплата заказа №{orderData.orderNumber}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Send Receipt Button */}
+        <button 
+          onClick={handleSendReceipt}
+          className="telegram-primary-btn telegram-send-receipt-btn"
+        >
+          <Receipt size={20} />
+          <span>Прислать чек</span>
+        </button>
+
+        {/* Information Card */}
+        <div className="telegram-card telegram-info-card">
+          <div className="telegram-info-content">
+            После оплаты пришлите чек в диалог по кнопке выше. 
+            Ваш заказ будет обработан в течение 10 минут. 
+            После подтверждения оплаты, менеджер ответит вам в диалоге.
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}

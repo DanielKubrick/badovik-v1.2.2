@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#007aff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>Mobile Test - Mini Woo Store</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #f0f0f0;
+        }
+        .test-container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+        }
+        .test-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+        .test-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .test-label {
+            font-weight: 600;
+            color: #666;
+        }
+        .test-value {
+            margin-top: 5px;
+            color: #333;
+        }
+        .back-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background: #007aff;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-title">📱 Mobile Test</div>
+        
+        <div class="test-item">
+            <div class="test-label">Screen Width:</div>
+            <div class="test-value" id="screenWidth">-</div>
+        </div>
+        
+        <div class="test-item">
+            <div class="test-label">Viewport Width:</div>
+            <div class="test-value" id="viewportWidth">-</div>
+        </div>
+        
+        <div class="test-item">
+            <div class="test-label">Device Pixel Ratio:</div>
+            <div class="test-value" id="devicePixelRatio">-</div>
+        </div>
+        
+        <div class="test-item">
+            <div class="test-label">User Agent:</div>
+            <div class="test-value" id="userAgent">-</div>
+        </div>
+        
+        <div class="test-item">
+            <div class="test-label">Touch Support:</div>
+            <div class="test-value" id="touchSupport">-</div>
+        </div>
+        
+        <a href="/" class="back-button">← Back to Store</a>
+    </div>
+
+    <script>
+        document.getElementById('screenWidth').textContent = screen.width + 'x' + screen.height;
+        document.getElementById('viewportWidth').textContent = window.innerWidth + 'x' + window.innerHeight;
+        document.getElementById('devicePixelRatio').textContent = window.devicePixelRatio || 1;
+        document.getElementById('userAgent').textContent = navigator.userAgent.substring(0, 60) + '...';
+        document.getElementById('touchSupport').textContent = 'ontouchstart' in window ? 'Yes ✅' : 'No ❌';
+    </script>
+</body>
+</html>

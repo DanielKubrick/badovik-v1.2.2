@@ -1,0 +1,260 @@
+import { create } from "zustand";
+
+type Item = { 
+  id: number; 
+  name: string; 
+  price: number; 
+  image?: string; 
+  qty: number;
+  key?: string; // WooCommerce cart key
+};
+
+type CartState = {
+  items: Record<number, Item>;
+  loading: boolean;
+  syncing: boolean;
+  
+  // Actions
+  add: (p: Omit<Item, "qty">, qty?: number) => Promise<void>;
+  inc: (id: number) => Promise<void>;
+  dec: (id: number) => Promise<void>;
+  remove: (id: number) => Promise<void>;
+  sync: () => Promise<void>;
+  
+  // Computed
+  count: () => number;
+  total: () => number;
+  isEmpty: () => boolean;
+};
+
+// API helpers
+const api = {
+  async addToCart(id: number, quantity: number = 1) {
+    const response = await fetch('/api/cart', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id, quantity })
+    });
+    
+    if (!response.ok) {
+      const error = await response.json().catch(() => ({ error: 'Network error' }));
+      throw new Error(error.error || 'Failed to add to cart');
+    }
+    
+    return response.json();
+  },
+
+  async updateCart(key: string, quantity: number) {
+    const response = await fetch('/api/cart/update', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ key, quantity })
+    });
+    
+    if (!response.ok) {
+      const error = await response.json().catch(() => ({ error: 'Network error' }));
+      throw new Error(error.error || 'Failed to update cart');
+    }
+    
+    return response.json();
+  },
+
+  async removeFromCart(key: string) {
+    const response = await fetch('/api/cart/update', {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ key })
+    });
+    
+    if (!response.ok) {
+      const error = await response.json().catch(() => ({ error: 'Network error' }));
+      throw new Error(error.error || 'Failed to remove from cart');
+    }
+    
+    return response.json();
+  },
+
+  async getCart() {
+    const response = await fetch('/api/cart');
+    
+    if (!response.ok) {
+      throw new Error('Failed to fetch cart');
+    }
+    
+    return response.json();
+  }
+};
+
+// Helper function to safely parse price from WooCommerce
+const parsePrice = (priceData: any): number => {
+  if (typeof priceData === 'number') return priceData;
+  
+  // WooCommerce Store API returns prices in different formats
+  if (priceData?.price) {
+    // From Store API: prices: { price: "287130", currency_code: "RUB" }
+    const price = parseInt(priceData.price) / 100; // Store API returns in cents
+    return isNaN(price) ? 0 : price;
+  }
+  
+  if (typeof priceData === 'string') {
+    // From REST API: "2871.3"
+    const price = parseFloat(priceData);
+    return isNaN(price) ? 0 : price;
+  }
+  
+  return 0;
+};
+
+export const useCart = create<CartState>((set, get) => ({
+  items: {},
+  loading: false,
+  syncing: false,
+
+  add: async (product, qty = 1) => {
+    try {
+      set({ syncing: true });
+      
+      // Optimistic update
+      set(state => ({
+        items: {
+          ...state.items, 
+          [product.id]: {
+            ...product, 
+            qty: (state.items[product.id]?.qty || 0) + qty
+          }
+        }
+      }));
+
+      // Sync with API
+      const cartData = await api.addToCart(product.id, qty);
+      
+      // Update with server response
+      const items: Record<number, Item> = {};
+      cartData.items?.forEach((item: any) => {
+        items[item.id] = {
+          id: item.id,
+          name: item.name,
+          price: parsePrice(item.prices),
+          image: item.images?.[0]?.src,
+          qty: item.quantity,
+          key: item.key
+        };
+      });
+      
+      set({ items, syncing: false });
+      
+    } catch (error) {
+      console.error('Add to cart error:', error);
+      set({ syncing: false });
+      // Revert optimistic update on error
+      get().sync();
+      throw error;
+    }
+  },
+
+  inc: async (id: number) => {
+    const item = get().items[id];
+    if (!item?.key) return;
+
+    try {
+      set({ syncing: true });
+      
+      // Optimistic update
+      set(state => ({
+        items: {
+          ...state.items, 
+          [id]: { ...state.items[id], qty: state.items[id].qty + 1 }
+        }
+      }));
+
+      await api.updateCart(item.key, item.qty + 1);
+      await get().sync();
+      
+    } catch (error) {
+      console.error('Increment error:', error);
+      set({ syncing: false });
+      get().sync();
+    }
+  },
+
+  dec: async (id: number) => {
+    const item = get().items[id];
+    if (!item?.key) return;
+
+    try {
+      set({ syncing: true });
+      
+      const newQty = item.qty - 1;
+      
+      if (newQty <= 0) {
+        // Remove item
+        await api.removeFromCart(item.key);
+      } else {
+        // Update quantity
+        await api.updateCart(item.key, newQty);
+      }
+      
+      await get().sync();
+      
+    } catch (error) {
+      console.error('Decrement error:', error);
+      set({ syncing: false });
+      get().sync();
+    }
+  },
+
+  remove: async (id: number) => {
+    const item = get().items[id];
+    if (!item?.key) return;
+
+    try {
+      set({ syncing: true });
+      
+      // Optimistic update
+      set(state => {
+        const items = { ...state.items };
+        delete items[id];
+        return { items };
+      });
+
+      await api.removeFromCart(item.key);
+      await get().sync();
+      
+    } catch (error) {
+      console.error('Remove error:', error);
+      set({ syncing: false });
+      get().sync();
+    }
+  },
+
+  sync: async () => {
+    try {
+      set({ loading: true });
+      
+      const cartData = await api.getCart();
+      
+      const items: Record<number, Item> = {};
+      cartData.items?.forEach((item: any) => {
+        items[item.id] = {
+          id: item.id,
+          name: item.name,
+          price: parsePrice(item.prices),
+          image: item.images?.[0]?.src,
+          qty: item.quantity,
+          key: item.key
+        };
+      });
+      
+      set({ items, loading: false, syncing: false });
+      
+    } catch (error) {
+      console.error('Sync error:', error);
+      set({ loading: false, syncing: false });
+    }
+  },
+
+  // Computed values
+  count: () => Object.values(get().items).reduce((a, i) => a + i.qty, 0),
+  total: () => Object.values(get().items).reduce((a, i) => a + i.qty * i.price, 0),
+  isEmpty: () => Object.keys(get().items).length === 0
+}));

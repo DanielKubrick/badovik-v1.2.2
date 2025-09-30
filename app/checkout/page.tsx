@@ -1,0 +1,415 @@
+'use client'
+
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { ArrowLeft, User, Phone, Mail, CreditCard, ShoppingBag, CheckCircle } from "lucide-react";
+import { useCart } from "../../components/cart/store";
+import { useToastSuccess, useToastError, useToastWarning } from "@/components/ui/ToastContainer";
+import LoadingSpinner from "@/components/ui/LoadingSpinner";
+
+const formatPrice = (price: number): string => {
+  if (price === 0) return 'Уточнить цену';
+  return new Intl.NumberFormat('ru-RU', {
+    style: 'currency',
+    currency: 'RUB',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2,
+  }).format(price).replace('₽', '').trim() + ' ₽';
+};
+
+export default function CheckoutPage() {
+  const router = useRouter();
+  const cart = useCart();
+  const toastSuccess = useToastSuccess();
+  const toastError = useToastError();
+  const toastWarning = useToastWarning();
+
+  const [billingData, setBillingData] = useState({
+    firstName: '',
+    lastName: '',
+    phone: '',
+    email: ''
+  });
+  const [formErrors, setFormErrors] = useState<Record<string, string>>({});
+  const [currentStep, setCurrentStep] = useState(1);
+
+  const items = Object.values(cart.items);
+  const totalCount = cart.count();
+  const totalPrice = cart.total();
+
+  useEffect(() => {
+    // Если корзина пуста, перенаправляем на главную
+    if (items.length === 0) {
+      toastWarning('Корзина пуста', 'Добавьте товары для оформления заказа');
+      router.push('/');
+    }
+  }, [items.length, router, toastWarning]);
+
+  const validateForm = () => {
+    const errors: Record<string, string> = {};
+    
+    if (!billingData.firstName.trim()) {
+      errors.firstName = 'Имя обязательно для заполнения';
+    } else if (billingData.firstName.length < 2) {
+      errors.firstName = 'Имя должно содержать минимум 2 символа';
+    }
+    
+    if (!billingData.lastName.trim()) {
+      errors.lastName = 'Фамилия обязательна для заполнения';
+    } else if (billingData.lastName.length < 2) {
+      errors.lastName = 'Фамилия должна содержать минимум 2 символа';
+    }
+    
+    if (billingData.phone && !/^\+?[1-9]\d{1,14}$/.test(billingData.phone.replace(/[\s\-\(\)]/g, ''))) {
+      errors.phone = 'Неверный формат номера телефона';
+    }
+    
+    if (billingData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(billingData.email)) {
+      errors.email = 'Неверный формат email адреса';
+    }
+    
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
+  const handleInputChange = (field: string, value: string) => {
+    setBillingData(prev => ({...prev, [field]: value}));
+    // Очищаем ошибку для поля при изменении
+    if (formErrors[field]) {
+      setFormErrors(prev => {
+        const newErrors = {...prev};
+        delete newErrors[field];
+        return newErrors;
+      });
+    }
+  };
+
+  const handleNextStep = () => {
+    if (currentStep === 1) {
+      // Проверяем основные поля
+      if (billingData.firstName.trim() && billingData.lastName.trim()) {
+        setCurrentStep(2);
+        toastSuccess('Отлично!', 'Переходим к контактным данным');
+      } else {
+        toastError('Заполните обязательные поля', 'Имя и фамилия необходимы');
+      }
+    } else if (currentStep === 2) {
+      setCurrentStep(3);
+      toastSuccess('Почти готово!', 'Проверьте данные заказа');
+    }
+  };
+
+  const handlePrevStep = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+    }
+  };
+
+  const handleCreateOrder = async () => {
+    if (!validateForm()) {
+      toastError('Ошибка валидации', 'Пожалуйста, исправьте ошибки в форме');
+      setCurrentStep(1); // Возвращаем к первому шагу для исправления
+      return;
+    }
+
+    try {
+      const result = await cart.createOrder({
+        firstName: billingData.firstName,
+        lastName: billingData.lastName,
+        phone: billingData.phone,
+        email: billingData.email
+      });
+
+      if (result.success) {
+        toastSuccess(
+          'Заказ создан!', 
+          `Заказ №${result.orderData?.orderNumber} успешно создан`
+        );
+        // Задержка для показа уведомления
+        setTimeout(() => {
+          router.push('/order-success');
+        }, 1500);
+      } else {
+        toastError('Ошибка создания заказа', result.error || 'Неизвестная ошибка');
+      }
+    } catch (error) {
+      toastError('Ошибка сети', 'Проверьте подключение к интернету');
+    }
+  };
+
+  if (items.length === 0) {
+    return null; // Компонент перенаправит на главную через useEffect
+  }
+
+  return (
+    <div className="telegram-app">
+      {/* Header */}
+      <div className="telegram-header">
+        <button 
+          onClick={() => currentStep === 1 ? router.back() : handlePrevStep()}
+          className="telegram-back-btn"
+          disabled={cart.orderLoading}
+        >
+          <ArrowLeft size={20} />
+        </button>
+        <h1 className="telegram-header-title">
+          {currentStep === 1 && 'Личные данные'}
+          {currentStep === 2 && 'Контакты'}
+          {currentStep === 3 && 'Подтверждение'}
+        </h1>
+        <div className="telegram-header-count">
+          {currentStep}/3
+        </div>
+      </div>
+
+      {/* Progress Bar */}
+      <div className="checkout-progress-container">
+        <div className="checkout-progress-bar">
+          {[1, 2, 3].map((step) => (
+            <div
+              key={step}
+              className={`checkout-progress-step ${
+                step <= currentStep ? 'active' : ''
+              } ${step < currentStep ? 'completed' : ''}`}
+            >
+              {step < currentStep ? (
+                <CheckCircle size={16} />
+              ) : (
+                <span>{step}</span>
+              )}
+            </div>
+          ))}
+        </div>
+        <div className="checkout-progress-labels">
+          <span className={currentStep >= 1 ? 'active' : ''}>Данные</span>
+          <span className={currentStep >= 2 ? 'active' : ''}>Контакты</span>
+          <span className={currentStep >= 3 ? 'active' : ''}>Заказ</span>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="telegram-content">
+        {currentStep === 1 && (
+          <div className="checkout-step-container">
+            <div className="telegram-card checkout-card">
+              <div className="checkout-card-header">
+                <User className="checkout-card-icon" />
+                <div>
+                  <h3 className="checkout-card-title">Личные данные</h3>
+                  <p className="checkout-card-subtitle">Как к вам обращаться?</p>
+                </div>
+              </div>
+              
+              <div className="checkout-form-group">
+                <label className="telegram-form-label">
+                  <User size={16} className="form-label-icon" />
+                  Имя *
+                </label>
+                <input
+                  type="text"
+                  value={billingData.firstName}
+                  onChange={(e) => handleInputChange('firstName', e.target.value)}
+                  className={`telegram-form-input ${formErrors.firstName ? 'error' : ''}`}
+                  placeholder="Введите ваше имя"
+                  disabled={cart.orderLoading}
+                />
+                {formErrors.firstName && (
+                  <div className="form-error-message">
+                    {formErrors.firstName}
+                  </div>
+                )}
+              </div>
+              
+              <div className="checkout-form-group">
+                <label className="telegram-form-label">
+                  <User size={16} className="form-label-icon" />
+                  Фамилия *
+                </label>
+                <input
+                  type="text"
+                  value={billingData.lastName}
+                  onChange={(e) => handleInputChange('lastName', e.target.value)}
+                  className={`telegram-form-input ${formErrors.lastName ? 'error' : ''}`}
+                  placeholder="Введите вашу фамилию"
+                  disabled={cart.orderLoading}
+                />
+                {formErrors.lastName && (
+                  <div className="form-error-message">
+                    {formErrors.lastName}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {currentStep === 2 && (
+          <div className="checkout-step-container">
+            <div className="telegram-card checkout-card">
+              <div className="checkout-card-header">
+                <Phone className="checkout-card-icon" />
+                <div>
+                  <h3 className="checkout-card-title">Контактная информация</h3>
+                  <p className="checkout-card-subtitle">Как с вами связаться? (необязательно)</p>
+                </div>
+              </div>
+              
+              <div className="checkout-form-group">
+                <label className="telegram-form-label">
+                  <Phone size={16} className="form-label-icon" />
+                  Телефон
+                </label>
+                <input
+                  type="tel"
+                  value={billingData.phone}
+                  onChange={(e) => handleInputChange('phone', e.target.value)}
+                  className={`telegram-form-input ${formErrors.phone ? 'error' : ''}`}
+                  placeholder="+7 (999) 123-45-67"
+                  disabled={cart.orderLoading}
+                />
+                {formErrors.phone && (
+                  <div className="form-error-message">
+                    {formErrors.phone}
+                  </div>
+                )}
+              </div>
+              
+              <div className="checkout-form-group">
+                <label className="telegram-form-label">
+                  <Mail size={16} className="form-label-icon" />
+                  Email
+                </label>
+                <input
+                  type="email"
+                  value={billingData.email}
+                  onChange={(e) => handleInputChange('email', e.target.value)}
+                  className={`telegram-form-input ${formErrors.email ? 'error' : ''}`}
+                  placeholder="example@mail.com"
+                  disabled={cart.orderLoading}
+                />
+                {formErrors.email && (
+                  <div className="form-error-message">
+                    {formErrors.email}
+                  </div>
+                )}
+              </div>
+
+              <div className="checkout-info-box">
+                <div className="checkout-info-icon">💡</div>
+                <div className="checkout-info-text">
+                  Контактные данные помогут нам связаться с вами для уточнения деталей заказа
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {currentStep === 3 && (
+          <div className="checkout-step-container">
+            {/* Customer Info Summary */}
+            <div className="telegram-card checkout-card">
+              <div className="checkout-card-header">
+                <User className="checkout-card-icon" />
+                <div>
+                  <h3 className="checkout-card-title">Данные покупателя</h3>
+                  <p className="checkout-card-subtitle">Проверьте правильность</p>
+                </div>
+              </div>
+              
+              <div className="checkout-summary-item">
+                <span className="checkout-summary-label">Имя:</span>
+                <span className="checkout-summary-value">{billingData.firstName} {billingData.lastName}</span>
+              </div>
+              
+              {billingData.phone && (
+                <div className="checkout-summary-item">
+                  <span className="checkout-summary-label">Телефон:</span>
+                  <span className="checkout-summary-value">{billingData.phone}</span>
+                </div>
+              )}
+              
+              {billingData.email && (
+                <div className="checkout-summary-item">
+                  <span className="checkout-summary-label">Email:</span>
+                  <span className="checkout-summary-value">{billingData.email}</span>
+                </div>
+              )}
+            </div>
+
+            {/* Order Summary */}
+            <div className="telegram-card checkout-card">
+              <div className="checkout-card-header">
+                <ShoppingBag className="checkout-card-icon" />
+                <div>
+                  <h3 className="checkout-card-title">Ваш заказ</h3>
+                  <p className="checkout-card-subtitle">{totalCount} товара на сумму {formatPrice(totalPrice)}</p>
+                </div>
+              </div>
+              
+              <div className="checkout-order-items">
+                {items.slice(0, 3).map((item) => (
+                  <div key={item.id} className="checkout-order-item">
+                    <div className="checkout-order-item-info">
+                      <div className="checkout-order-item-name">{item.name}</div>
+                      <div className="checkout-order-item-details">
+                        {item.qty} шт. × {formatPrice(item.price)}
+                      </div>
+                    </div>
+                    <div className="checkout-order-item-total">
+                      {formatPrice(item.price * item.qty)}
+                    </div>
+                  </div>
+                ))}
+                
+                {items.length > 3 && (
+                  <div className="checkout-order-item">
+                    <div className="checkout-order-item-info">
+                      <div className="checkout-order-item-name">...и еще {items.length - 3} товара</div>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <div className="checkout-total">
+                <div className="checkout-total-label">Итого к оплате:</div>
+                <div className="checkout-total-amount">{formatPrice(totalPrice)}</div>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Navigation Buttons */}
+      <div className="checkout-navigation">
+        {currentStep < 3 ? (
+          <button
+            onClick={handleNextStep}
+            disabled={cart.orderLoading || 
+              (currentStep === 1 && (!billingData.firstName.trim() || !billingData.lastName.trim()))}
+            className="telegram-primary-btn checkout-next-btn"
+          >
+            Продолжить
+          </button>
+        ) : (
+          <button
+            onClick={handleCreateOrder}
+            disabled={cart.orderLoading}
+            className="telegram-primary-btn checkout-order-btn"
+          >
+            {cart.orderLoading ? (
+              <>
+                <LoadingSpinner size="small" color="white" />
+                <span>Создаем заказ...</span>
+              </>
+            ) : (
+              <>
+                <CreditCard size={20} />
+                <span>Создать заказ на {formatPrice(totalPrice)}</span>
+              </>
+            )}
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}

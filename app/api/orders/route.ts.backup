@@ -1,0 +1,131 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { generateOrderNumber, generateOrderKey, type OrderData } from '@/lib/order-utils';
+
+const WP = process.env.WOOCOMMERCE_URL!;
+const CK = process.env.WOOCOMMERCE_CONSUMER_KEY!;
+const CS = process.env.WOOCOMMERCE_CONSUMER_SECRET!;
+
+interface OrderPayload {
+  line_items: Array<{
+    product_id: number;
+    quantity: number;
+    name?: string;
+    price?: number;
+  }>;
+  billing: {
+    first_name: string;
+    last_name: string;
+    email?: string;
+    phone?: string;
+  };
+  shipping?: {
+    first_name: string;
+    last_name: string;
+  };
+  customer_note?: string;
+}
+
+export async function POST(req: Request) {
+  try {
+    const payload: OrderPayload = await req.json();
+    
+    // Валидация данных
+    if (!payload.line_items || payload.line_items.length === 0) {
+      return NextResponse.json(
+        { ok: false, error: 'Корзина пуста' }, 
+        { status: 400 }
+      );
+    }
+
+    if (!payload.billing?.first_name) {
+      return NextResponse.json(
+        { ok: false, error: 'Не указано имя покупателя' }, 
+        { status: 400 }
+      );
+    }
+
+    // Генерируем наши собственные номер и ключ заказа
+    const orderNumber = generateOrderNumber();
+    const orderKey = generateOrderKey();
+
+    const orderData = {
+      ...payload,
+      set_paid: false,
+      status: 'on-hold', // 'ожидает оплаты'
+      payment_method: 'bacs',
+      payment_method_title: 'Банковский перевод',
+      meta_data: [
+        { key: 'source', value: 'mini-woo-app' },
+        { key: 'created_via', value: 'telegram-webapp' },
+        { key: 'mini_woo_order_number', value: orderNumber },
+        { key: 'mini_woo_order_key', value: orderKey }
+      ],
+    };
+
+    const res = await fetch(
+      `${WP}/wp-json/wc/v3/orders?consumer_key=${CK}&consumer_secret=${CS}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(orderData),
+      }
+    );
+
+    if (!res.ok) {
+      const errorText = await res.text();
+      console.error('WooCommerce API Error:', errorText);
+      return NextResponse.json(
+        { ok: false, error: 'Ошибка при создании заказа' }, 
+        { status: res.status }
+      );
+    }
+
+    const order = await res.json();
+    console.log('Order created:', order.id, 'Order Number:', orderNumber, 'Total:', order.total);
+
+    // Формируем данные заказа для клиента
+    const orderResponse: OrderData = {
+      id: order.id.toString(),
+      orderNumber: orderNumber,
+      key: orderKey,
+      total: order.total,
+      currency: order.currency || 'RUB',
+      status: order.status,
+      createdAt: new Date().toISOString(),
+      items: payload.line_items.map(item => ({
+        id: item.product_id,
+        name: item.name || `Товар #${item.product_id}`,
+        quantity: item.quantity,
+        price: item.price || 0
+      })),
+      billing: {
+        firstName: payload.billing.first_name,
+        lastName: payload.billing.last_name,
+        phone: payload.billing.phone,
+        email: payload.billing.email
+      }
+    };
+
+    return NextResponse.json({
+      ok: true,
+      order: orderResponse,
+      // Для обратной совместимости
+      id: order.id,
+      orderNumber: orderNumber,
+      key: orderKey,
+      total: order.total,
+      currency: order.currency,
+      status: order.status,
+      // Ссылка для онлайн оплаты (на будущее)
+      paymentUrl: order.payment_url ?? 
+        `${WP}/checkout/order-pay/${order.id}/?pay_for_order=true&key=${order.order_key}`,
+    });
+
+  } catch (error) {
+    console.error('Orders API Error:', error);
+    return NextResponse.json(
+      { ok: false, error: 'Внутренняя ошибка сервера' }, 
+      { status: 500 }
+    );
+  }
+}

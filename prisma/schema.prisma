@@ -1,0 +1,170 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Пользователь Telegram
+model User {
+  id            String   @id @default(uuid())
+  telegramId    String   @unique
+  firstName     String?
+  lastName      String?
+  username      String?
+  languageCode  String?
+  isPremium     Boolean  @default(false)
+  photoUrl      String?
+  
+  // Метаданные
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  lastActiveAt  DateTime @default(now())
+  
+  // Статистика
+  totalOrders   Int      @default(0)
+  totalSpent    Float    @default(0)
+  
+  // Связи
+  carts         Cart[]
+  orders        Order[]
+  favoriteItems FavoriteItem[]
+  
+  @@map("users")
+}
+
+// Корзина пользователя
+model Cart {
+  id        String     @id @default(uuid())
+  userId    String
+  expiresAt DateTime?  // Время истечения корзины
+  
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  
+  // Связи
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items     CartItem[]
+  
+  @@map("carts")
+}
+
+// Элемент корзины
+model CartItem {
+  id        String @id @default(uuid())
+  cartId    String
+  productId Int
+  name      String
+  price     Float
+  image     String?
+  quantity  Int
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Связи
+  cart      Cart @relation(fields: [cartId], references: [id], onDelete: Cascade)
+  
+  // Уникальность: один товар в одной корзине
+  @@unique([cartId, productId])
+  @@map("cart_items")
+}
+
+// Заказ
+model Order {
+  id           String      @id @default(uuid())
+  userId       String
+  orderNumber  String      @unique // Номер заказа вида MMWOO-YYYY-XXXXX
+  orderKey     String      @unique // Ключ безопасности
+  
+  // WooCommerce ID
+  wooCommerceId Int?       @unique
+  
+  // Общая информация
+  status       OrderStatus @default(PENDING)
+  total        Float
+  currency     String      @default("RUB")
+  
+  // Данные покупателя
+  billingFirstName  String
+  billingLastName   String
+  billingPhone      String?
+  billingEmail      String?
+  
+  // Заметки
+  customerNote      String?
+  
+  // Метаданные
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  
+  // Связи
+  user         User @relation(fields: [userId], references: [id])
+  items        OrderItem[]
+  
+  @@map("orders")
+}
+
+// Статусы заказов
+enum OrderStatus {
+  PENDING     // Ожидает оплаты
+  PROCESSING  // Обрабатывается
+  SHIPPED     // Отправлен
+  COMPLETED   // Завершен
+  CANCELLED   // Отменен
+  REFUNDED    // Возвращен
+}
+
+// Элемент заказа
+model OrderItem {
+  id        String @id @default(uuid())
+  orderId   String
+  productId Int
+  name      String
+  price     Float
+  quantity  Int
+  
+  createdAt DateTime @default(now())
+  
+  // Связи
+  order     Order @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  
+  @@map("order_items")
+}
+
+// Избранные товары
+model FavoriteItem {
+  id        String @id @default(uuid())
+  userId    String
+  productId Int
+  name      String
+  price     Float
+  image     String?
+  
+  createdAt DateTime @default(now())
+  
+  // Связи
+  user      User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Уникальность: один товар у одного пользователя
+  @@unique([userId, productId])
+  @@map("favorite_items")
+}
+
+// Сессия пользователя
+model UserSession {
+  id           String   @id @default(uuid())
+  userId       String
+  sessionToken String   @unique
+  expires      DateTime
+  
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  
+  @@map("user_sessions")
+}

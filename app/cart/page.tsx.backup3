@@ -1,0 +1,290 @@
+'use client'
+
+import { useState } from "react";
+import { useCart } from "../../components/cart/store";
+import { ArrowLeft, Plus, Minus, Trash2, ShoppingCart } from "lucide-react";
+import { useRouter } from "next/navigation";
+
+const formatPrice = (price: number): string => {
+  if (price === 0) return 'Уточнить цену';
+  return new Intl.NumberFormat('ru-RU', {
+    style: 'currency',
+    currency: 'RUB',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2,
+  }).format(price).replace('₽', '').trim() + ' ₽';
+};
+
+export default function CartPage() {
+  const router = useRouter();
+  const cart = useCart();
+  const [showBillingForm, setShowBillingForm] = useState(false);
+  const [billingData, setBillingData] = useState({
+    firstName: '',
+    lastName: '',
+    phone: '',
+    email: ''
+  });
+
+  const items = Object.values(cart.items);
+  const totalCount = cart.count();
+  const totalPrice = cart.total();
+
+  const handleIncrement = async (id: number) => {
+    await cart.inc(id);
+  };
+
+  const handleDecrement = async (id: number) => {
+    await cart.dec(id);
+  };
+
+  const handleRemove = async (id: number) => {
+    await cart.remove(id);
+  };
+
+  const handleCheckout = () => {
+    setShowBillingForm(true);
+  };
+
+  const handleCreateOrder = async () => {
+    if (!billingData.firstName || !billingData.lastName) {
+      alert('Пожалуйста, заполните имя и фамилию');
+      return;
+    }
+
+    const result = await cart.createOrder({
+      firstName: billingData.firstName,
+      lastName: billingData.lastName,
+      phone: billingData.phone,
+      email: billingData.email
+    });
+
+    if (result.success) {
+      // Переходим на страницу успеха
+      router.push('/order-success');
+    } else {
+      alert(result.error || 'Ошибка при создании заказа');
+    }
+  };
+
+  if (showBillingForm) {
+    return (
+      <div className="telegram-app">
+        {/* Header */}
+        <div className="telegram-header">
+          <button 
+            onClick={() => setShowBillingForm(false)}
+            className="telegram-back-btn"
+          >
+            <ArrowLeft size={20} />
+          </button>
+          <h1 className="telegram-header-title">Оформление заказа</h1>
+        </div>
+
+        {/* Content */}
+        <div className="telegram-content">
+          <div className="telegram-card">
+            <h3 className="telegram-card-header-title">Данные покупателя</h3>
+            
+            <div className="space-y-4">
+              <div>
+                <label className="telegram-form-label">Имя *</label>
+                <input
+                  type="text"
+                  value={billingData.firstName}
+                  onChange={(e) => setBillingData(prev => ({...prev, firstName: e.target.value}))}
+                  className="telegram-form-input"
+                  placeholder="Введите ваше имя"
+                  required
+                />
+              </div>
+              
+              <div>
+                <label className="telegram-form-label">Фамилия *</label>
+                <input
+                  type="text"
+                  value={billingData.lastName}
+                  onChange={(e) => setBillingData(prev => ({...prev, lastName: e.target.value}))}
+                  className="telegram-form-input"
+                  placeholder="Введите вашу фамилию"
+                  required
+                />
+              </div>
+              
+              <div>
+                <label className="telegram-form-label">Телефон</label>
+                <input
+                  type="tel"
+                  value={billingData.phone}
+                  onChange={(e) => setBillingData(prev => ({...prev, phone: e.target.value}))}
+                  className="telegram-form-input"
+                  placeholder="+7 (___) ___-__-__"
+                />
+              </div>
+              
+              <div>
+                <label className="telegram-form-label">Email</label>
+                <input
+                  type="email"
+                  value={billingData.email}
+                  onChange={(e) => setBillingData(prev => ({...prev, email: e.target.value}))}
+                  className="telegram-form-input"
+                  placeholder="example@mail.com"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Order Summary */}
+          <div className="telegram-card">
+            <h3 className="telegram-card-header-title">Сумма заказа</h3>
+            <div className="flex justify-between items-center py-2">
+              <span>Товары ({totalCount} шт.)</span>
+              <span className="telegram-price">{formatPrice(totalPrice)}</span>
+            </div>
+            <div className="border-t pt-2 flex justify-between items-center font-semibold">
+              <span>Итого к оплате:</span>
+              <span className="telegram-price text-lg">{formatPrice(totalPrice)}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Sticky Bottom - Create Order Button */}
+        <div className="telegram-sticky-cart-bar">
+          <div className="telegram-cart-summary">
+            <button
+              onClick={handleCreateOrder}
+              disabled={cart.orderLoading || !billingData.firstName || !billingData.lastName}
+              className="telegram-cart-button w-full"
+            >
+              {cart.orderLoading ? 'Создание заказа...' : `Создать заказ на ${formatPrice(totalPrice)}`}
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="telegram-app">
+      {/* Header */}
+      <div className="telegram-header">
+        <button 
+          onClick={() => router.back()}
+          className="telegram-back-btn"
+        >
+          <ArrowLeft size={20} />
+        </button>
+        <h1 className="telegram-header-title">Корзина</h1>
+        {totalCount > 0 && (
+          <span className="telegram-header-count">
+            {totalCount}
+          </span>
+        )}
+      </div>
+
+      {/* Content */}
+      {items.length === 0 ? (
+        /* Empty State */
+        <div className="telegram-empty-state">
+          <div className="telegram-empty-icon">🛒</div>
+          <div className="telegram-empty-text">Корзина пуста</div>
+          <div className="telegram-empty-hint">
+            Добавьте товары из каталога
+          </div>
+          <button
+            onClick={() => router.push('/')}
+            className="telegram-empty-button"
+          >
+            Перейти к покупкам
+          </button>
+        </div>
+      ) : (
+        /* Cart Items */
+        <div className="telegram-content">
+          <div className="telegram-cart-items">
+            {items.map((item) => (
+              <div key={item.id} className="telegram-cart-item">
+                {/* Product Image */}
+                <div className="telegram-cart-item-image">
+                  {item.image ? (
+                    <img 
+                      src={item.image} 
+                      alt={item.name}
+                      className="telegram-product-image"
+                    />
+                  ) : (
+                    <div className="telegram-product-image-placeholder">
+                      📦
+                    </div>
+                  )}
+                </div>
+                
+                {/* Product Info */}
+                <div className="telegram-cart-item-info">
+                  <h3 className="telegram-product-title">
+                    {item.name}
+                  </h3>
+                  <div className="telegram-price">
+                    {formatPrice(item.price)}
+                  </div>
+                  
+                  {/* Quantity Controls */}
+                  <div className="telegram-cart-item-controls">
+                    <div className="telegram-quantity-controls">
+                      <button
+                        onClick={() => handleDecrement(item.id)}
+                        className="telegram-quantity-btn telegram-quantity-minus"
+                        disabled={cart.loading}
+                      >
+                        <Minus size={16} />
+                      </button>
+                      <span className="telegram-quantity-value">
+                        {item.qty}
+                      </span>
+                      <button
+                        onClick={() => handleIncrement(item.id)}
+                        className="telegram-quantity-btn telegram-quantity-plus"
+                        disabled={cart.loading}
+                      >
+                        <Plus size={16} />
+                      </button>
+                    </div>
+                    
+                    <button
+                      onClick={() => handleRemove(item.id)}
+                      className="telegram-remove-btn"
+                      disabled={cart.loading}
+                    >
+                      <Trash2 size={16} />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Sticky Bottom - Total & Checkout */}
+      {items.length > 0 && (
+        <div className="telegram-sticky-cart-bar">
+          <div className="telegram-cart-summary">
+            <div className="telegram-cart-info">
+              <ShoppingCart className="telegram-cart-bar-icon" />
+              <span className="telegram-cart-count">Итого: {totalCount} товаров</span>
+              <span className="telegram-price-total">{formatPrice(totalPrice)}</span>
+            </div>
+            <button
+              onClick={handleCheckout}
+              disabled={cart.loading || totalCount === 0}
+              className="telegram-cart-button"
+            >
+              {cart.loading ? 'Загрузка...' : 'Оформить заказ'}
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
