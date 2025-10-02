@@ -40,7 +40,7 @@ const ToastComponent = ({ toast, onRemove }: ToastProps) => {
         return <AlertCircle size={iconSize} className="text-yellow-600" />
       case 'info':
       default:
-        return <Info size={iconSize} className="text-blue-600" />
+        return <Info size={iconSize} className="text-orange-600" />
     }
   }
 
@@ -54,7 +54,7 @@ const ToastComponent = ({ toast, onRemove }: ToastProps) => {
         return 'border-yellow-200 bg-yellow-50 text-yellow-800'
       case 'info':
       default:
-        return 'border-blue-200 bg-blue-50 text-blue-800'
+        return 'border-orange-200 bg-orange-50 text-orange-800'
     }
   }
 

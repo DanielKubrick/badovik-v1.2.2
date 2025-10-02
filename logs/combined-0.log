@@ -1,0 +1,1129 @@
+2025-10-02T17:40:49: 
+2025-10-02T17:40:49: > mini-woo@1.2.1 start
+2025-10-02T17:40:49: > next start
+2025-10-02T17:40:49: 
+2025-10-02T17:40:50:    ▲ Next.js 15.5.4
+2025-10-02T17:40:50:    - Local:        http://localhost:3001
+2025-10-02T17:40:50:    - Network:      http://168.231.125.194:3001
+2025-10-02T17:40:50: 
+2025-10-02T17:40:50:  ✓ Starting...
+2025-10-02T17:40:50:  ✓ Ready in 519ms
+2025-10-02T17:41:06: Telegram Req: {
+2025-10-02T17:41:06:   update_id: 155739054,
+2025-10-02T17:41:06:   message: {
+2025-10-02T17:41:06:     message_id: 143,
+2025-10-02T17:41:06:     from: {
+2025-10-02T17:41:06:       id: 304147691,
+2025-10-02T17:41:06:       is_bot: false,
+2025-10-02T17:41:06:       first_name: 'Данил',
+2025-10-02T17:41:06:       username: 'paulstamets',
+2025-10-02T17:41:06:       language_code: 'en',
+2025-10-02T17:41:06:       is_premium: true
+2025-10-02T17:41:06:     },
+2025-10-02T17:41:06:     chat: {
+2025-10-02T17:41:06:       id: 304147691,
+2025-10-02T17:41:06:       first_name: 'Данил',
+2025-10-02T17:41:06:       username: 'paulstamets',
+2025-10-02T17:41:06:       type: 'private'
+2025-10-02T17:41:06:     },
+2025-10-02T17:41:06:     date: 1759426866,
+2025-10-02T17:41:06:     text: '/start',
+2025-10-02T17:41:06:     entities: [ [Object] ]
+2025-10-02T17:41:06:   }
+2025-10-02T17:41:06: }
+2025-10-02T17:41:07: Telegram Req: {
+2025-10-02T17:41:07:   update_id: 155739055,
+2025-10-02T17:41:07:   message: {
+2025-10-02T17:41:07:     message_id: 145,
+2025-10-02T17:41:07:     from: {
+2025-10-02T17:41:07:       id: 304147691,
+2025-10-02T17:41:07:       is_bot: false,
+2025-10-02T17:41:07:       first_name: 'Данил',
+2025-10-02T17:41:07:       username: 'paulstamets',
+2025-10-02T17:41:07:       language_code: 'en',
+2025-10-02T17:41:07:       is_premium: true
+2025-10-02T17:41:07:     },
+2025-10-02T17:41:07:     chat: {
+2025-10-02T17:41:07:       id: 304147691,
+2025-10-02T17:41:07:       first_name: 'Данил',
+2025-10-02T17:41:07:       username: 'paulstamets',
+2025-10-02T17:41:07:       type: 'private'
+2025-10-02T17:41:07:     },
+2025-10-02T17:41:07:     date: 1759426867,
+2025-10-02T17:41:07:     text: '/start',
+2025-10-02T17:41:07:     entities: [ [Object] ]
+2025-10-02T17:41:07:   }
+2025-10-02T17:41:07: }
+2025-10-02T17:41:13: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T17:41:13: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T17:41:17: Telegram Req: {
+2025-10-02T17:41:17:   update_id: 155739052,
+2025-10-02T17:41:17:   my_chat_member: {
+2025-10-02T17:41:17:     chat: {
+2025-10-02T17:41:17:       id: 304147691,
+2025-10-02T17:41:17:       first_name: 'Данил',
+2025-10-02T17:41:17:       username: 'paulstamets',
+2025-10-02T17:41:17:       type: 'private'
+2025-10-02T17:41:17:     },
+2025-10-02T17:41:17:     from: {
+2025-10-02T17:41:17:       id: 304147691,
+2025-10-02T17:41:17:       is_bot: false,
+2025-10-02T17:41:17:       first_name: 'Данил',
+2025-10-02T17:41:17:       username: 'paulstamets',
+2025-10-02T17:41:17:       language_code: 'en',
+2025-10-02T17:41:17:       is_premium: true
+2025-10-02T17:41:17:     },
+2025-10-02T17:41:17:     date: 1759426814,
+2025-10-02T17:41:17:     old_chat_member: { user: [Object], status: 'member' },
+2025-10-02T17:41:17:     new_chat_member: { user: [Object], status: 'kicked', until_date: 0 }
+2025-10-02T17:41:17:   }
+2025-10-02T17:41:17: }
+2025-10-02T17:41:17: Telegram Req: {
+2025-10-02T17:41:17:   update_id: 155739053,
+2025-10-02T17:41:17:   my_chat_member: {
+2025-10-02T17:41:17:     chat: {
+2025-10-02T17:41:17:       id: 304147691,
+2025-10-02T17:41:17:       first_name: 'Данил',
+2025-10-02T17:41:17:       username: 'paulstamets',
+2025-10-02T17:41:17:       type: 'private'
+2025-10-02T17:41:17:     },
+2025-10-02T17:41:17:     from: {
+2025-10-02T17:41:17:       id: 304147691,
+2025-10-02T17:41:17:       is_bot: false,
+2025-10-02T17:41:17:       first_name: 'Данил',
+2025-10-02T17:41:17:       username: 'paulstamets',
+2025-10-02T17:41:17:       language_code: 'en',
+2025-10-02T17:41:17:       is_premium: true
+2025-10-02T17:41:17:     },
+2025-10-02T17:41:17:     date: 1759426866,
+2025-10-02T17:41:17:     old_chat_member: { user: [Object], status: 'kicked', until_date: 0 },
+2025-10-02T17:41:17:     new_chat_member: { user: [Object], status: 'member' }
+2025-10-02T17:41:17:   }
+2025-10-02T17:41:17: }
+2025-10-02T17:41:27: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T17:41:27: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T17:41:41: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T17:41:41: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T17:42:13: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T17:42:13: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T17:42:20: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T17:42:20: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T17:43:15: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T17:43:15: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T17:45:12: Telegram Req: {
+2025-10-02T17:45:12:   update_id: 155739056,
+2025-10-02T17:45:12:   message: {
+2025-10-02T17:45:12:     message_id: 147,
+2025-10-02T17:45:12:     from: {
+2025-10-02T17:45:12:       id: 304147691,
+2025-10-02T17:45:12:       is_bot: false,
+2025-10-02T17:45:12:       first_name: 'Данил',
+2025-10-02T17:45:12:       username: 'paulstamets',
+2025-10-02T17:45:12:       language_code: 'en',
+2025-10-02T17:45:12:       is_premium: true
+2025-10-02T17:45:12:     },
+2025-10-02T17:45:12:     chat: {
+2025-10-02T17:45:12:       id: 304147691,
+2025-10-02T17:45:12:       first_name: 'Данил',
+2025-10-02T17:45:12:       username: 'paulstamets',
+2025-10-02T17:45:12:       type: 'private'
+2025-10-02T17:45:12:     },
+2025-10-02T17:45:12:     date: 1759427111,
+2025-10-02T17:45:12:     photo: [ [Object], [Object], [Object], [Object] ]
+2025-10-02T17:45:12:   }
+2025-10-02T17:45:12: }
+2025-10-02T17:50:59: 
+2025-10-02T17:50:59: > mini-woo@1.2.1 start
+2025-10-02T17:50:59: > next start
+2025-10-02T17:50:59: 
+2025-10-02T17:51:00:    ▲ Next.js 15.5.4
+2025-10-02T17:51:00:    - Local:        http://localhost:3001
+2025-10-02T17:51:00:    - Network:      http://168.231.125.194:3001
+2025-10-02T17:51:00: 
+2025-10-02T17:51:00:  ✓ Starting...
+2025-10-02T17:51:00:  ✓ Ready in 553ms
+2025-10-02T17:51:18: Telegram Req: {
+2025-10-02T17:51:18:   update_id: 155739057,
+2025-10-02T17:51:18:   my_chat_member: {
+2025-10-02T17:51:18:     chat: {
+2025-10-02T17:51:18:       id: 304147691,
+2025-10-02T17:51:18:       first_name: 'Данил',
+2025-10-02T17:51:18:       username: 'paulstamets',
+2025-10-02T17:51:18:       type: 'private'
+2025-10-02T17:51:18:     },
+2025-10-02T17:51:18:     from: {
+2025-10-02T17:51:18:       id: 304147691,
+2025-10-02T17:51:18:       is_bot: false,
+2025-10-02T17:51:18:       first_name: 'Данил',
+2025-10-02T17:51:18:       username: 'paulstamets',
+2025-10-02T17:51:18:       language_code: 'en',
+2025-10-02T17:51:18:       is_premium: true
+2025-10-02T17:51:18:     },
+2025-10-02T17:51:18:     date: 1759427477,
+2025-10-02T17:51:18:     old_chat_member: { user: [Object], status: 'member' },
+2025-10-02T17:51:18:     new_chat_member: { user: [Object], status: 'kicked', until_date: 0 }
+2025-10-02T17:51:18:   }
+2025-10-02T17:51:18: }
+2025-10-02T17:51:20: Telegram Req: {
+2025-10-02T17:51:20:   update_id: 155739058,
+2025-10-02T17:51:20:   my_chat_member: {
+2025-10-02T17:51:20:     chat: {
+2025-10-02T17:51:20:       id: 304147691,
+2025-10-02T17:51:20:       first_name: 'Данил',
+2025-10-02T17:51:20:       username: 'paulstamets',
+2025-10-02T17:51:20:       type: 'private'
+2025-10-02T17:51:20:     },
+2025-10-02T17:51:20:     from: {
+2025-10-02T17:51:20:       id: 304147691,
+2025-10-02T17:51:20:       is_bot: false,
+2025-10-02T17:51:20:       first_name: 'Данил',
+2025-10-02T17:51:20:       username: 'paulstamets',
+2025-10-02T17:51:20:       language_code: 'en',
+2025-10-02T17:51:20:       is_premium: true
+2025-10-02T17:51:20:     },
+2025-10-02T17:51:20:     date: 1759427480,
+2025-10-02T17:51:20:     old_chat_member: { user: [Object], status: 'kicked', until_date: 0 },
+2025-10-02T17:51:20:     new_chat_member: { user: [Object], status: 'member' }
+2025-10-02T17:51:20:   }
+2025-10-02T17:51:20: }
+2025-10-02T17:51:21: Telegram Req: {
+2025-10-02T17:51:21:   update_id: 155739059,
+2025-10-02T17:51:21:   message: {
+2025-10-02T17:51:21:     message_id: 148,
+2025-10-02T17:51:21:     from: {
+2025-10-02T17:51:21:       id: 304147691,
+2025-10-02T17:51:21:       is_bot: false,
+2025-10-02T17:51:21:       first_name: 'Данил',
+2025-10-02T17:51:21:       username: 'paulstamets',
+2025-10-02T17:51:21:       language_code: 'en',
+2025-10-02T17:51:21:       is_premium: true
+2025-10-02T17:51:21:     },
+2025-10-02T17:51:21:     chat: {
+2025-10-02T17:51:21:       id: 304147691,
+2025-10-02T17:51:21:       first_name: 'Данил',
+2025-10-02T17:51:21:       username: 'paulstamets',
+2025-10-02T17:51:21:       type: 'private'
+2025-10-02T17:51:21:     },
+2025-10-02T17:51:21:     date: 1759427481,
+2025-10-02T17:51:21:     text: '/start',
+2025-10-02T17:51:21:     entities: [ [Object] ]
+2025-10-02T17:51:21:   }
+2025-10-02T17:51:21: }
+2025-10-02T17:51:21: Telegram Req: {
+2025-10-02T17:51:21:   update_id: 155739060,
+2025-10-02T17:51:21:   message: {
+2025-10-02T17:51:21:     message_id: 150,
+2025-10-02T17:51:21:     from: {
+2025-10-02T17:51:21:       id: 304147691,
+2025-10-02T17:51:21:       is_bot: false,
+2025-10-02T17:51:21:       first_name: 'Данил',
+2025-10-02T17:51:21:       username: 'paulstamets',
+2025-10-02T17:51:21:       language_code: 'en',
+2025-10-02T17:51:21:       is_premium: true
+2025-10-02T17:51:21:     },
+2025-10-02T17:51:21:     chat: {
+2025-10-02T17:51:21:       id: 304147691,
+2025-10-02T17:51:21:       first_name: 'Данил',
+2025-10-02T17:51:21:       username: 'paulstamets',
+2025-10-02T17:51:21:       type: 'private'
+2025-10-02T17:51:21:     },
+2025-10-02T17:51:21:     date: 1759427481,
+2025-10-02T17:51:21:     text: '/start',
+2025-10-02T17:51:21:     entities: [ [Object] ]
+2025-10-02T17:51:21:   }
+2025-10-02T17:51:21: }
+2025-10-02T17:51:27: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T17:51:27: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T17:52:02: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T17:52:02: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T17:52:27: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T17:52:27: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T17:52:35: Telegram Req: {
+2025-10-02T17:52:35:   update_id: 155739061,
+2025-10-02T17:52:35:   my_chat_member: {
+2025-10-02T17:52:35:     chat: {
+2025-10-02T17:52:35:       id: 304147691,
+2025-10-02T17:52:35:       first_name: 'Данил',
+2025-10-02T17:52:35:       username: 'paulstamets',
+2025-10-02T17:52:35:       type: 'private'
+2025-10-02T17:52:35:     },
+2025-10-02T17:52:35:     from: {
+2025-10-02T17:52:35:       id: 304147691,
+2025-10-02T17:52:35:       is_bot: false,
+2025-10-02T17:52:35:       first_name: 'Данил',
+2025-10-02T17:52:35:       username: 'paulstamets',
+2025-10-02T17:52:35:       language_code: 'en',
+2025-10-02T17:52:35:       is_premium: true
+2025-10-02T17:52:35:     },
+2025-10-02T17:52:35:     date: 1759427554,
+2025-10-02T17:52:35:     old_chat_member: { user: [Object], status: 'member' },
+2025-10-02T17:52:35:     new_chat_member: { user: [Object], status: 'kicked', until_date: 0 }
+2025-10-02T17:52:35:   }
+2025-10-02T17:52:35: }
+2025-10-02T17:52:57: Telegram Req: {
+2025-10-02T17:52:57:   update_id: 155739062,
+2025-10-02T17:52:57:   my_chat_member: {
+2025-10-02T17:52:57:     chat: {
+2025-10-02T17:52:57:       id: 304147691,
+2025-10-02T17:52:57:       first_name: 'Данил',
+2025-10-02T17:52:57:       username: 'paulstamets',
+2025-10-02T17:52:57:       type: 'private'
+2025-10-02T17:52:57:     },
+2025-10-02T17:52:57:     from: {
+2025-10-02T17:52:57:       id: 304147691,
+2025-10-02T17:52:57:       is_bot: false,
+2025-10-02T17:52:57:       first_name: 'Данил',
+2025-10-02T17:52:57:       username: 'paulstamets',
+2025-10-02T17:52:57:       language_code: 'en',
+2025-10-02T17:52:57:       is_premium: true
+2025-10-02T17:52:57:     },
+2025-10-02T17:52:57:     date: 1759427577,
+2025-10-02T17:52:57:     old_chat_member: { user: [Object], status: 'kicked', until_date: 0 },
+2025-10-02T17:52:57:     new_chat_member: { user: [Object], status: 'member' }
+2025-10-02T17:52:57:   }
+2025-10-02T17:52:57: }
+2025-10-02T17:52:57: Telegram Req: {
+2025-10-02T17:52:57:   update_id: 155739063,
+2025-10-02T17:52:57:   message: {
+2025-10-02T17:52:57:     message_id: 152,
+2025-10-02T17:52:57:     from: {
+2025-10-02T17:52:57:       id: 304147691,
+2025-10-02T17:52:57:       is_bot: false,
+2025-10-02T17:52:57:       first_name: 'Данил',
+2025-10-02T17:52:57:       username: 'paulstamets',
+2025-10-02T17:52:57:       language_code: 'en',
+2025-10-02T17:52:57:       is_premium: true
+2025-10-02T17:52:57:     },
+2025-10-02T17:52:57:     chat: {
+2025-10-02T17:52:57:       id: 304147691,
+2025-10-02T17:52:57:       first_name: 'Данил',
+2025-10-02T17:52:57:       username: 'paulstamets',
+2025-10-02T17:52:57:       type: 'private'
+2025-10-02T17:52:57:     },
+2025-10-02T17:52:57:     date: 1759427577,
+2025-10-02T17:52:57:     text: '/start',
+2025-10-02T17:52:57:     entities: [ [Object] ]
+2025-10-02T17:52:57:   }
+2025-10-02T17:52:57: }
+2025-10-02T17:52:58: Telegram Req: {
+2025-10-02T17:52:58:   update_id: 155739064,
+2025-10-02T17:52:58:   message: {
+2025-10-02T17:52:58:     message_id: 154,
+2025-10-02T17:52:58:     from: {
+2025-10-02T17:52:58:       id: 304147691,
+2025-10-02T17:52:58:       is_bot: false,
+2025-10-02T17:52:58:       first_name: 'Данил',
+2025-10-02T17:52:58:       username: 'paulstamets',
+2025-10-02T17:52:58:       language_code: 'en',
+2025-10-02T17:52:58:       is_premium: true
+2025-10-02T17:52:58:     },
+2025-10-02T17:52:58:     chat: {
+2025-10-02T17:52:58:       id: 304147691,
+2025-10-02T17:52:58:       first_name: 'Данил',
+2025-10-02T17:52:58:       username: 'paulstamets',
+2025-10-02T17:52:58:       type: 'private'
+2025-10-02T17:52:58:     },
+2025-10-02T17:52:58:     date: 1759427578,
+2025-10-02T17:52:58:     text: '/start',
+2025-10-02T17:52:58:     entities: [ [Object] ]
+2025-10-02T17:52:58:   }
+2025-10-02T17:52:58: }
+2025-10-02T17:53:01: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T17:53:01: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T17:53:43: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T17:53:44: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T17:54:51: Telegram Req: {
+2025-10-02T17:54:51:   update_id: 155739065,
+2025-10-02T17:54:51:   my_chat_member: {
+2025-10-02T17:54:51:     chat: {
+2025-10-02T17:54:51:       id: 304147691,
+2025-10-02T17:54:51:       first_name: 'Данил',
+2025-10-02T17:54:51:       username: 'paulstamets',
+2025-10-02T17:54:51:       type: 'private'
+2025-10-02T17:54:51:     },
+2025-10-02T17:54:51:     from: {
+2025-10-02T17:54:51:       id: 304147691,
+2025-10-02T17:54:51:       is_bot: false,
+2025-10-02T17:54:51:       first_name: 'Данил',
+2025-10-02T17:54:51:       username: 'paulstamets',
+2025-10-02T17:54:51:       language_code: 'en',
+2025-10-02T17:54:51:       is_premium: true
+2025-10-02T17:54:51:     },
+2025-10-02T17:54:51:     date: 1759427691,
+2025-10-02T17:54:51:     old_chat_member: { user: [Object], status: 'member' },
+2025-10-02T17:54:51:     new_chat_member: { user: [Object], status: 'kicked', until_date: 0 }
+2025-10-02T17:54:51:   }
+2025-10-02T17:54:51: }
+2025-10-02T17:55:06: Telegram Req: {
+2025-10-02T17:55:06:   update_id: 155739066,
+2025-10-02T17:55:06:   my_chat_member: {
+2025-10-02T17:55:06:     chat: {
+2025-10-02T17:55:06:       id: 304147691,
+2025-10-02T17:55:06:       first_name: 'Данил',
+2025-10-02T17:55:06:       username: 'paulstamets',
+2025-10-02T17:55:06:       type: 'private'
+2025-10-02T17:55:06:     },
+2025-10-02T17:55:06:     from: {
+2025-10-02T17:55:06:       id: 304147691,
+2025-10-02T17:55:06:       is_bot: false,
+2025-10-02T17:55:06:       first_name: 'Данил',
+2025-10-02T17:55:06:       username: 'paulstamets',
+2025-10-02T17:55:06:       language_code: 'ru',
+2025-10-02T17:55:06:       is_premium: true
+2025-10-02T17:55:06:     },
+2025-10-02T17:55:06:     date: 1759427706,
+2025-10-02T17:55:06:     old_chat_member: { user: [Object], status: 'kicked', until_date: 0 },
+2025-10-02T17:55:06:     new_chat_member: { user: [Object], status: 'member' }
+2025-10-02T17:55:06:   }
+2025-10-02T17:55:06: }
+2025-10-02T17:55:07: Telegram Req: {
+2025-10-02T17:55:07:   update_id: 155739067,
+2025-10-02T17:55:07:   message: {
+2025-10-02T17:55:07:     message_id: 156,
+2025-10-02T17:55:07:     from: {
+2025-10-02T17:55:07:       id: 304147691,
+2025-10-02T17:55:07:       is_bot: false,
+2025-10-02T17:55:07:       first_name: 'Данил',
+2025-10-02T17:55:07:       username: 'paulstamets',
+2025-10-02T17:55:07:       language_code: 'ru',
+2025-10-02T17:55:07:       is_premium: true
+2025-10-02T17:55:07:     },
+2025-10-02T17:55:07:     chat: {
+2025-10-02T17:55:07:       id: 304147691,
+2025-10-02T17:55:07:       first_name: 'Данил',
+2025-10-02T17:55:07:       username: 'paulstamets',
+2025-10-02T17:55:07:       type: 'private'
+2025-10-02T17:55:07:     },
+2025-10-02T17:55:07:     date: 1759427707,
+2025-10-02T17:55:07:     text: '/start',
+2025-10-02T17:55:07:     entities: [ [Object] ]
+2025-10-02T17:55:07:   }
+2025-10-02T17:55:07: }
+2025-10-02T17:55:11: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T17:55:11: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T17:56:03: Creating order in WooCommerce...
+2025-10-02T17:56:04: WooCommerce Order created: 868 Order Number: 10WOO-2025-00868 Total: 2318.00
+2025-10-02T17:56:04: Updated WooCommerce order with order number: 10WOO-2025-00868
+2025-10-02T17:56:04: Order created for guest user - not saved to local database
+2025-10-02T17:56:04: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T17:56:04: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T17:56:25: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T17:56:25: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T18:04:10: Telegram Req: {
+2025-10-02T18:04:10:   update_id: 155739068,
+2025-10-02T18:04:10:   my_chat_member: {
+2025-10-02T18:04:10:     chat: {
+2025-10-02T18:04:10:       id: 304147691,
+2025-10-02T18:04:10:       first_name: 'Данил',
+2025-10-02T18:04:10:       username: 'paulstamets',
+2025-10-02T18:04:10:       type: 'private'
+2025-10-02T18:04:10:     },
+2025-10-02T18:04:10:     from: {
+2025-10-02T18:04:10:       id: 304147691,
+2025-10-02T18:04:10:       is_bot: false,
+2025-10-02T18:04:10:       first_name: 'Данил',
+2025-10-02T18:04:10:       username: 'paulstamets',
+2025-10-02T18:04:10:       language_code: 'ru',
+2025-10-02T18:04:10:       is_premium: true
+2025-10-02T18:04:10:     },
+2025-10-02T18:04:10:     date: 1759428250,
+2025-10-02T18:04:10:     old_chat_member: { user: [Object], status: 'member' },
+2025-10-02T18:04:10:     new_chat_member: { user: [Object], status: 'kicked', until_date: 0 }
+2025-10-02T18:04:10:   }
+2025-10-02T18:04:10: }
+2025-10-02T18:04:24: 
+2025-10-02T18:04:24: > mini-woo@1.2.1 start
+2025-10-02T18:04:24: > next start
+2025-10-02T18:04:24: 
+2025-10-02T18:04:25:    ▲ Next.js 15.5.4
+2025-10-02T18:04:25:    - Local:        http://localhost:3001
+2025-10-02T18:04:25:    - Network:      http://168.231.125.194:3001
+2025-10-02T18:04:25: 
+2025-10-02T18:04:25:  ✓ Starting...
+2025-10-02T18:04:25:  ✓ Ready in 630ms
+2025-10-02T18:04:41: Telegram Req: {
+2025-10-02T18:04:41:   update_id: 155739069,
+2025-10-02T18:04:41:   my_chat_member: {
+2025-10-02T18:04:41:     chat: {
+2025-10-02T18:04:41:       id: 304147691,
+2025-10-02T18:04:41:       first_name: 'Данил',
+2025-10-02T18:04:41:       username: 'paulstamets',
+2025-10-02T18:04:41:       type: 'private'
+2025-10-02T18:04:41:     },
+2025-10-02T18:04:41:     from: {
+2025-10-02T18:04:41:       id: 304147691,
+2025-10-02T18:04:41:       is_bot: false,
+2025-10-02T18:04:41:       first_name: 'Данил',
+2025-10-02T18:04:41:       username: 'paulstamets',
+2025-10-02T18:04:41:       language_code: 'en',
+2025-10-02T18:04:41:       is_premium: true
+2025-10-02T18:04:41:     },
+2025-10-02T18:04:41:     date: 1759428281,
+2025-10-02T18:04:41:     old_chat_member: { user: [Object], status: 'kicked', until_date: 0 },
+2025-10-02T18:04:41:     new_chat_member: { user: [Object], status: 'member' }
+2025-10-02T18:04:41:   }
+2025-10-02T18:04:41: }
+2025-10-02T18:04:41: Telegram Req: {
+2025-10-02T18:04:41:   update_id: 155739070,
+2025-10-02T18:04:41:   message: {
+2025-10-02T18:04:41:     message_id: 158,
+2025-10-02T18:04:41:     from: {
+2025-10-02T18:04:41:       id: 304147691,
+2025-10-02T18:04:41:       is_bot: false,
+2025-10-02T18:04:41:       first_name: 'Данил',
+2025-10-02T18:04:41:       username: 'paulstamets',
+2025-10-02T18:04:41:       language_code: 'en',
+2025-10-02T18:04:41:       is_premium: true
+2025-10-02T18:04:41:     },
+2025-10-02T18:04:41:     chat: {
+2025-10-02T18:04:41:       id: 304147691,
+2025-10-02T18:04:41:       first_name: 'Данил',
+2025-10-02T18:04:41:       username: 'paulstamets',
+2025-10-02T18:04:41:       type: 'private'
+2025-10-02T18:04:41:     },
+2025-10-02T18:04:41:     date: 1759428281,
+2025-10-02T18:04:41:     text: '/start',
+2025-10-02T18:04:41:     entities: [ [Object] ]
+2025-10-02T18:04:41:   }
+2025-10-02T18:04:41: }
+2025-10-02T18:04:42: Telegram Req: {
+2025-10-02T18:04:42:   update_id: 155739071,
+2025-10-02T18:04:42:   message: {
+2025-10-02T18:04:42:     message_id: 160,
+2025-10-02T18:04:42:     from: {
+2025-10-02T18:04:42:       id: 304147691,
+2025-10-02T18:04:42:       is_bot: false,
+2025-10-02T18:04:42:       first_name: 'Данил',
+2025-10-02T18:04:42:       username: 'paulstamets',
+2025-10-02T18:04:42:       language_code: 'en',
+2025-10-02T18:04:42:       is_premium: true
+2025-10-02T18:04:42:     },
+2025-10-02T18:04:42:     chat: {
+2025-10-02T18:04:42:       id: 304147691,
+2025-10-02T18:04:42:       first_name: 'Данил',
+2025-10-02T18:04:42:       username: 'paulstamets',
+2025-10-02T18:04:42:       type: 'private'
+2025-10-02T18:04:42:     },
+2025-10-02T18:04:42:     date: 1759428282,
+2025-10-02T18:04:42:     text: '/start',
+2025-10-02T18:04:42:     entities: [ [Object] ]
+2025-10-02T18:04:42:   }
+2025-10-02T18:04:42: }
+2025-10-02T18:04:48: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T18:04:48: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T18:04:52:  ⚠ Unsupported metadata viewport is configured in metadata export in /product/[id]. Please move it to viewport export instead.
+2025-10-02T18:04:52: Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+2025-10-02T18:04:52:  ⚠ Unsupported metadata themeColor is configured in metadata export in /product/[id]. Please move it to viewport export instead.
+2025-10-02T18:04:52: Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+2025-10-02T18:04:53: Fetching product: 851
+2025-10-02T18:05:03: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T18:05:03: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T18:05:26: Creating order in WooCommerce...
+2025-10-02T18:05:26: WooCommerce Order created: 869 Order Number: 10WOO-2025-00869 Total: 735.00
+2025-10-02T18:05:26: Updated WooCommerce order with order number: 10WOO-2025-00869
+2025-10-02T18:05:26: Order created for guest user - not saved to local database
+2025-10-02T18:05:27: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T18:05:27: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T18:05:42: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T18:05:42: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T18:09:22: Creating order in WooCommerce...
+2025-10-02T18:09:23: WooCommerce Order created: 870 Order Number: 10WOO-2025-00870 Total: 4129.00
+2025-10-02T18:09:23: Updated WooCommerce order with order number: 10WOO-2025-00870
+2025-10-02T18:09:23: Order created for guest user - not saved to local database
+2025-10-02T18:09:23: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T18:09:23: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T18:10:03: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T18:10:03: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T18:12:52: Telegram Req: {
+2025-10-02T18:12:52:   update_id: 155739072,
+2025-10-02T18:12:52:   message: {
+2025-10-02T18:12:52:     message_id: 162,
+2025-10-02T18:12:52:     from: {
+2025-10-02T18:12:52:       id: 304147691,
+2025-10-02T18:12:52:       is_bot: false,
+2025-10-02T18:12:52:       first_name: 'Данил',
+2025-10-02T18:12:52:       username: 'paulstamets',
+2025-10-02T18:12:52:       language_code: 'en',
+2025-10-02T18:12:52:       is_premium: true
+2025-10-02T18:12:52:     },
+2025-10-02T18:12:52:     chat: {
+2025-10-02T18:12:52:       id: 304147691,
+2025-10-02T18:12:52:       first_name: 'Данил',
+2025-10-02T18:12:52:       username: 'paulstamets',
+2025-10-02T18:12:52:       type: 'private'
+2025-10-02T18:12:52:     },
+2025-10-02T18:12:52:     date: 1759428772,
+2025-10-02T18:12:52:     photo: [ [Object], [Object], [Object], [Object] ]
+2025-10-02T18:12:52:   }
+2025-10-02T18:12:52: }
+2025-10-02T18:22:01: 
+2025-10-02T18:22:01: > mini-woo@1.2.1 start
+2025-10-02T18:22:01: > next start
+2025-10-02T18:22:01: 
+2025-10-02T18:22:01:    ▲ Next.js 15.5.4
+2025-10-02T18:22:01:    - Local:        http://localhost:3001
+2025-10-02T18:22:01:    - Network:      http://168.231.125.194:3001
+2025-10-02T18:22:01: 
+2025-10-02T18:22:01:  ✓ Starting...
+2025-10-02T18:22:02:  ✓ Ready in 729ms
+2025-10-02T18:23:12: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T18:23:13: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T18:25:08: 
+2025-10-02T18:25:08: > mini-woo@1.2.1 start
+2025-10-02T18:25:08: > next start
+2025-10-02T18:25:08: 
+2025-10-02T18:25:08:    ▲ Next.js 15.5.4
+2025-10-02T18:25:08:    - Local:        http://localhost:3001
+2025-10-02T18:25:08:    - Network:      http://168.231.125.194:3001
+2025-10-02T18:25:08: 
+2025-10-02T18:25:08:  ✓ Starting...
+2025-10-02T18:25:09:  ✓ Ready in 604ms
+2025-10-02T18:47:52: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T18:47:52: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T18:53:44: 
+2025-10-02T18:53:44: > mini-woo@1.2.1 start
+2025-10-02T18:53:44: > next start
+2025-10-02T18:53:44: 
+2025-10-02T18:53:44:    ▲ Next.js 15.5.4
+2025-10-02T18:53:44:    - Local:        http://localhost:3001
+2025-10-02T18:53:44:    - Network:      http://168.231.125.194:3001
+2025-10-02T18:53:44: 
+2025-10-02T18:53:44:  ✓ Starting...
+2025-10-02T18:53:45:  ✓ Ready in 733ms
+2025-10-02T19:05:25: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T19:05:25: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T19:13:39:  ⚠ Unsupported metadata viewport is configured in metadata export in /product/[id]. Please move it to viewport export instead.
+2025-10-02T19:13:39: Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+2025-10-02T19:13:39:  ⚠ Unsupported metadata themeColor is configured in metadata export in /product/[id]. Please move it to viewport export instead.
+2025-10-02T19:13:39: Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+2025-10-02T19:13:39: Fetching product: 852
+2025-10-02T19:13:43: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T19:13:43: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T19:14:12: Creating order in WooCommerce...
+2025-10-02T19:14:13: WooCommerce Order created: 871 Order Number: 10WOO-2025-00871 Total: 4129.00
+2025-10-02T19:14:13: Updated WooCommerce order with order number: 10WOO-2025-00871
+2025-10-02T19:14:13: Order created for guest user - not saved to local database
+2025-10-02T19:14:13: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T19:14:13: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T19:42:13: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T19:42:13: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T19:43:50: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T19:43:50: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T20:23:28: Telegram Req: {
+2025-10-02T20:23:28:   update_id: 155739073,
+2025-10-02T20:23:28:   my_chat_member: {
+2025-10-02T20:23:28:     chat: {
+2025-10-02T20:23:28:       id: 304147691,
+2025-10-02T20:23:28:       first_name: 'Данил',
+2025-10-02T20:23:28:       username: 'paulstamets',
+2025-10-02T20:23:28:       type: 'private'
+2025-10-02T20:23:28:     },
+2025-10-02T20:23:28:     from: {
+2025-10-02T20:23:28:       id: 304147691,
+2025-10-02T20:23:28:       is_bot: false,
+2025-10-02T20:23:28:       first_name: 'Данил',
+2025-10-02T20:23:28:       username: 'paulstamets',
+2025-10-02T20:23:28:       language_code: 'en',
+2025-10-02T20:23:28:       is_premium: true
+2025-10-02T20:23:28:     },
+2025-10-02T20:23:28:     date: 1759436607,
+2025-10-02T20:23:28:     old_chat_member: { user: [Object], status: 'member' },
+2025-10-02T20:23:28:     new_chat_member: { user: [Object], status: 'kicked', until_date: 0 }
+2025-10-02T20:23:28:   }
+2025-10-02T20:23:28: }
+2025-10-02T20:23:29: Telegram Req: {
+2025-10-02T20:23:29:   update_id: 155739074,
+2025-10-02T20:23:29:   my_chat_member: {
+2025-10-02T20:23:29:     chat: {
+2025-10-02T20:23:29:       id: 304147691,
+2025-10-02T20:23:29:       first_name: 'Данил',
+2025-10-02T20:23:29:       username: 'paulstamets',
+2025-10-02T20:23:29:       type: 'private'
+2025-10-02T20:23:29:     },
+2025-10-02T20:23:29:     from: {
+2025-10-02T20:23:29:       id: 304147691,
+2025-10-02T20:23:29:       is_bot: false,
+2025-10-02T20:23:29:       first_name: 'Данил',
+2025-10-02T20:23:29:       username: 'paulstamets',
+2025-10-02T20:23:29:       language_code: 'en',
+2025-10-02T20:23:29:       is_premium: true
+2025-10-02T20:23:29:     },
+2025-10-02T20:23:29:     date: 1759436609,
+2025-10-02T20:23:29:     old_chat_member: { user: [Object], status: 'kicked', until_date: 0 },
+2025-10-02T20:23:29:     new_chat_member: { user: [Object], status: 'member' }
+2025-10-02T20:23:29:   }
+2025-10-02T20:23:29: }
+2025-10-02T20:23:29: Telegram Req: {
+2025-10-02T20:23:29:   update_id: 155739075,
+2025-10-02T20:23:29:   message: {
+2025-10-02T20:23:29:     message_id: 163,
+2025-10-02T20:23:29:     from: {
+2025-10-02T20:23:29:       id: 304147691,
+2025-10-02T20:23:29:       is_bot: false,
+2025-10-02T20:23:29:       first_name: 'Данил',
+2025-10-02T20:23:29:       username: 'paulstamets',
+2025-10-02T20:23:29:       language_code: 'en',
+2025-10-02T20:23:29:       is_premium: true
+2025-10-02T20:23:29:     },
+2025-10-02T20:23:29:     chat: {
+2025-10-02T20:23:29:       id: 304147691,
+2025-10-02T20:23:29:       first_name: 'Данил',
+2025-10-02T20:23:29:       username: 'paulstamets',
+2025-10-02T20:23:29:       type: 'private'
+2025-10-02T20:23:29:     },
+2025-10-02T20:23:29:     date: 1759436609,
+2025-10-02T20:23:29:     text: '/start',
+2025-10-02T20:23:29:     entities: [ [Object] ]
+2025-10-02T20:23:29:   }
+2025-10-02T20:23:29: }
+2025-10-02T20:23:30: Telegram Req: {
+2025-10-02T20:23:30:   update_id: 155739076,
+2025-10-02T20:23:30:   message: {
+2025-10-02T20:23:30:     message_id: 165,
+2025-10-02T20:23:30:     from: {
+2025-10-02T20:23:30:       id: 304147691,
+2025-10-02T20:23:30:       is_bot: false,
+2025-10-02T20:23:30:       first_name: 'Данил',
+2025-10-02T20:23:30:       username: 'paulstamets',
+2025-10-02T20:23:30:       language_code: 'en',
+2025-10-02T20:23:30:       is_premium: true
+2025-10-02T20:23:30:     },
+2025-10-02T20:23:30:     chat: {
+2025-10-02T20:23:30:       id: 304147691,
+2025-10-02T20:23:30:       first_name: 'Данил',
+2025-10-02T20:23:30:       username: 'paulstamets',
+2025-10-02T20:23:30:       type: 'private'
+2025-10-02T20:23:30:     },
+2025-10-02T20:23:30:     date: 1759436610,
+2025-10-02T20:23:30:     text: '/start',
+2025-10-02T20:23:30:     entities: [ [Object] ]
+2025-10-02T20:23:30:   }
+2025-10-02T20:23:30: }
+2025-10-02T20:23:35: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T20:23:35: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T20:23:39: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T20:23:39: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T20:25:45: Telegram Req: {
+2025-10-02T20:25:45:   update_id: 155739077,
+2025-10-02T20:25:45:   message: {
+2025-10-02T20:25:45:     message_id: 167,
+2025-10-02T20:25:45:     from: {
+2025-10-02T20:25:45:       id: 304147691,
+2025-10-02T20:25:45:       is_bot: false,
+2025-10-02T20:25:45:       first_name: 'Данил',
+2025-10-02T20:25:45:       username: 'paulstamets',
+2025-10-02T20:25:45:       language_code: 'ru',
+2025-10-02T20:25:45:       is_premium: true
+2025-10-02T20:25:45:     },
+2025-10-02T20:25:45:     chat: {
+2025-10-02T20:25:45:       id: 304147691,
+2025-10-02T20:25:45:       first_name: 'Данил',
+2025-10-02T20:25:45:       username: 'paulstamets',
+2025-10-02T20:25:45:       type: 'private'
+2025-10-02T20:25:45:     },
+2025-10-02T20:25:45:     date: 1759436745,
+2025-10-02T20:25:45:     photo: [ [Object], [Object], [Object], [Object] ]
+2025-10-02T20:25:45:   }
+2025-10-02T20:25:45: }
+2025-10-02T20:41:49: Telegram Req: {
+2025-10-02T20:41:49:   update_id: 155739078,
+2025-10-02T20:41:49:   my_chat_member: {
+2025-10-02T20:41:49:     chat: {
+2025-10-02T20:41:49:       id: 304147691,
+2025-10-02T20:41:49:       first_name: 'Данил',
+2025-10-02T20:41:49:       username: 'paulstamets',
+2025-10-02T20:41:49:       type: 'private'
+2025-10-02T20:41:49:     },
+2025-10-02T20:41:49:     from: {
+2025-10-02T20:41:49:       id: 304147691,
+2025-10-02T20:41:49:       is_bot: false,
+2025-10-02T20:41:49:       first_name: 'Данил',
+2025-10-02T20:41:49:       username: 'paulstamets',
+2025-10-02T20:41:49:       language_code: 'ru',
+2025-10-02T20:41:49:       is_premium: true
+2025-10-02T20:41:49:     },
+2025-10-02T20:41:49:     date: 1759437709,
+2025-10-02T20:41:49:     old_chat_member: { user: [Object], status: 'member' },
+2025-10-02T20:41:49:     new_chat_member: { user: [Object], status: 'kicked', until_date: 0 }
+2025-10-02T20:41:49:   }
+2025-10-02T20:41:49: }
+2025-10-02T20:42:06: Telegram Req: {
+2025-10-02T20:42:06:   update_id: 155739079,
+2025-10-02T20:42:06:   my_chat_member: {
+2025-10-02T20:42:06:     chat: {
+2025-10-02T20:42:06:       id: 304147691,
+2025-10-02T20:42:06:       first_name: 'Данил',
+2025-10-02T20:42:06:       username: 'paulstamets',
+2025-10-02T20:42:06:       type: 'private'
+2025-10-02T20:42:06:     },
+2025-10-02T20:42:06:     from: {
+2025-10-02T20:42:06:       id: 304147691,
+2025-10-02T20:42:06:       is_bot: false,
+2025-10-02T20:42:06:       first_name: 'Данил',
+2025-10-02T20:42:06:       username: 'paulstamets',
+2025-10-02T20:42:06:       language_code: 'en',
+2025-10-02T20:42:06:       is_premium: true
+2025-10-02T20:42:06:     },
+2025-10-02T20:42:06:     date: 1759437726,
+2025-10-02T20:42:06:     old_chat_member: { user: [Object], status: 'kicked', until_date: 0 },
+2025-10-02T20:42:06:     new_chat_member: { user: [Object], status: 'member' }
+2025-10-02T20:42:06:   }
+2025-10-02T20:42:06: }
+2025-10-02T20:42:06: Telegram Req: {
+2025-10-02T20:42:06:   update_id: 155739080,
+2025-10-02T20:42:06:   message: {
+2025-10-02T20:42:06:     message_id: 168,
+2025-10-02T20:42:06:     from: {
+2025-10-02T20:42:06:       id: 304147691,
+2025-10-02T20:42:06:       is_bot: false,
+2025-10-02T20:42:06:       first_name: 'Данил',
+2025-10-02T20:42:06:       username: 'paulstamets',
+2025-10-02T20:42:06:       language_code: 'en',
+2025-10-02T20:42:06:       is_premium: true
+2025-10-02T20:42:06:     },
+2025-10-02T20:42:06:     chat: {
+2025-10-02T20:42:06:       id: 304147691,
+2025-10-02T20:42:06:       first_name: 'Данил',
+2025-10-02T20:42:06:       username: 'paulstamets',
+2025-10-02T20:42:06:       type: 'private'
+2025-10-02T20:42:06:     },
+2025-10-02T20:42:06:     date: 1759437726,
+2025-10-02T20:42:06:     text: '/start',
+2025-10-02T20:42:06:     entities: [ [Object] ]
+2025-10-02T20:42:06:   }
+2025-10-02T20:42:06: }
+2025-10-02T20:42:07: Telegram Req: {
+2025-10-02T20:42:07:   update_id: 155739081,
+2025-10-02T20:42:07:   message: {
+2025-10-02T20:42:07:     message_id: 170,
+2025-10-02T20:42:07:     from: {
+2025-10-02T20:42:07:       id: 304147691,
+2025-10-02T20:42:07:       is_bot: false,
+2025-10-02T20:42:07:       first_name: 'Данил',
+2025-10-02T20:42:07:       username: 'paulstamets',
+2025-10-02T20:42:07:       language_code: 'en',
+2025-10-02T20:42:07:       is_premium: true
+2025-10-02T20:42:07:     },
+2025-10-02T20:42:07:     chat: {
+2025-10-02T20:42:07:       id: 304147691,
+2025-10-02T20:42:07:       first_name: 'Данил',
+2025-10-02T20:42:07:       username: 'paulstamets',
+2025-10-02T20:42:07:       type: 'private'
+2025-10-02T20:42:07:     },
+2025-10-02T20:42:07:     date: 1759437727,
+2025-10-02T20:42:07:     text: '/start',
+2025-10-02T20:42:07:     entities: [ [Object] ]
+2025-10-02T20:42:07:   }
+2025-10-02T20:42:07: }
+2025-10-02T20:42:12: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T20:42:13: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T21:36:09: 
+2025-10-02T21:36:09: > mini-woo@1.2.1 start
+2025-10-02T21:36:09: > next start
+2025-10-02T21:36:09: 
+2025-10-02T21:36:10:    ▲ Next.js 15.5.4
+2025-10-02T21:36:10:    - Local:        http://localhost:3001
+2025-10-02T21:36:10:    - Network:      http://168.231.125.194:3001
+2025-10-02T21:36:10: 
+2025-10-02T21:36:10:  ✓ Starting...
+2025-10-02T21:36:10:  ✓ Ready in 890ms
+2025-10-02T21:46:04: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T21:46:04: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T21:52:25: Telegram Req: {
+2025-10-02T21:52:25:   update_id: 155739082,
+2025-10-02T21:52:25:   message: {
+2025-10-02T21:52:25:     message_id: 172,
+2025-10-02T21:52:25:     from: {
+2025-10-02T21:52:25:       id: 304147691,
+2025-10-02T21:52:25:       is_bot: false,
+2025-10-02T21:52:25:       first_name: 'Данил',
+2025-10-02T21:52:25:       username: 'paulstamets',
+2025-10-02T21:52:25:       language_code: 'en',
+2025-10-02T21:52:25:       is_premium: true
+2025-10-02T21:52:25:     },
+2025-10-02T21:52:25:     chat: {
+2025-10-02T21:52:25:       id: 304147691,
+2025-10-02T21:52:25:       first_name: 'Данил',
+2025-10-02T21:52:25:       username: 'paulstamets',
+2025-10-02T21:52:25:       type: 'private'
+2025-10-02T21:52:25:     },
+2025-10-02T21:52:25:     date: 1759441945,
+2025-10-02T21:52:25:     photo: [ [Object], [Object], [Object], [Object] ]
+2025-10-02T21:52:25:   }
+2025-10-02T21:52:25: }
+2025-10-02T21:56:40: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T21:56:40: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T21:56:46: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=2&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T21:56:57: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T21:56:57: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T21:57:04: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=2&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T21:57:40: SyntaxError: Unexpected token '<', "<html>
+2025-10-02T21:57:40: <h"... is not valid JSON
+2025-10-02T21:57:40:     at JSON.parse (<anonymous>)
+2025-10-02T21:57:40:     at async w (.next/server/app/api/categories/route.js:1:641)
+2025-10-02T21:57:40:     at async k (.next/server/app/api/categories/route.js:1:3253)
+2025-10-02T21:57:41: Products API error: SyntaxError: Unexpected token '<', "<html>
+2025-10-02T21:57:41: <h"... is not valid JSON
+2025-10-02T21:57:41:     at JSON.parse (<anonymous>)
+2025-10-02T21:57:41:     at async w (.next/server/app/api/products/route.js:1:3089)
+2025-10-02T21:57:41:     at async k (.next/server/app/api/products/route.js:1:6254)
+2025-10-02T21:57:46: Products API error: SyntaxError: Unexpected token '<', "<html>
+2025-10-02T21:57:46: <h"... is not valid JSON
+2025-10-02T21:57:46:     at JSON.parse (<anonymous>)
+2025-10-02T21:57:46:     at async w (.next/server/app/api/products/route.js:1:3089)
+2025-10-02T21:57:46:     at async k (.next/server/app/api/products/route.js:1:6254)
+2025-10-02T21:57:50: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T21:57:50: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T21:57:57: SyntaxError: Unexpected token '<', "<html>
+2025-10-02T21:57:57: <h"... is not valid JSON
+2025-10-02T21:57:57:     at JSON.parse (<anonymous>)
+2025-10-02T21:57:57:     at async w (.next/server/app/api/categories/route.js:1:641)
+2025-10-02T21:57:57:     at async k (.next/server/app/api/categories/route.js:1:3253)
+2025-10-02T21:57:57: Products API error: SyntaxError: Unexpected token '<', "<html>
+2025-10-02T21:57:57: <h"... is not valid JSON
+2025-10-02T21:57:57:     at JSON.parse (<anonymous>)
+2025-10-02T21:57:57:     at async w (.next/server/app/api/products/route.js:1:3089)
+2025-10-02T21:57:57:     at async k (.next/server/app/api/products/route.js:1:6254)
+2025-10-02T21:58:04: Products API error: SyntaxError: Unexpected token '<', "<html>
+2025-10-02T21:58:04: <h"... is not valid JSON
+2025-10-02T21:58:04:     at JSON.parse (<anonymous>)
+2025-10-02T21:58:04:     at async w (.next/server/app/api/products/route.js:1:3089)
+2025-10-02T21:58:04:     at async k (.next/server/app/api/products/route.js:1:6254)
+2025-10-02T21:58:40: Telegram Req: {
+2025-10-02T21:58:40:   update_id: 155739083,
+2025-10-02T21:58:40:   message: {
+2025-10-02T21:58:40:     message_id: 173,
+2025-10-02T21:58:40:     from: {
+2025-10-02T21:58:40:       id: 304147691,
+2025-10-02T21:58:40:       is_bot: false,
+2025-10-02T21:58:40:       first_name: 'Данил',
+2025-10-02T21:58:40:       username: 'paulstamets',
+2025-10-02T21:58:40:       language_code: 'en',
+2025-10-02T21:58:40:       is_premium: true
+2025-10-02T21:58:40:     },
+2025-10-02T21:58:40:     chat: {
+2025-10-02T21:58:40:       id: 304147691,
+2025-10-02T21:58:40:       first_name: 'Данил',
+2025-10-02T21:58:40:       username: 'paulstamets',
+2025-10-02T21:58:40:       type: 'private'
+2025-10-02T21:58:40:     },
+2025-10-02T21:58:40:     date: 1759442320,
+2025-10-02T21:58:40:     photo: [ [Object], [Object], [Object], [Object] ]
+2025-10-02T21:58:40:   }
+2025-10-02T21:58:40: }
+2025-10-02T21:58:50: SyntaxError: Unexpected token '<', "<html>
+2025-10-02T21:58:50: <h"... is not valid JSON
+2025-10-02T21:58:50:     at JSON.parse (<anonymous>)
+2025-10-02T21:58:50:     at async w (.next/server/app/api/categories/route.js:1:641)
+2025-10-02T21:58:50:     at async k (.next/server/app/api/categories/route.js:1:3253)
+2025-10-02T21:58:50: Products API error: SyntaxError: Unexpected token '<', "<html>
+2025-10-02T21:58:50: <h"... is not valid JSON
+2025-10-02T21:58:50:     at JSON.parse (<anonymous>)
+2025-10-02T21:58:50:     at async w (.next/server/app/api/products/route.js:1:3089)
+2025-10-02T21:58:50:     at async k (.next/server/app/api/products/route.js:1:6254)
+2025-10-02T22:02:52: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T22:03:01: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T22:04:30: SyntaxError: Unexpected token '<', "<html>
+2025-10-02T22:04:30: <h"... is not valid JSON
+2025-10-02T22:04:30:     at JSON.parse (<anonymous>)
+2025-10-02T22:04:30:     at async w (.next/server/app/api/categories/route.js:1:641)
+2025-10-02T22:04:30:     at async k (.next/server/app/api/categories/route.js:1:3253)
+2025-10-02T22:04:30: Products API error: SyntaxError: Unexpected token '<', "<html>
+2025-10-02T22:04:30: <h"... is not valid JSON
+2025-10-02T22:04:30:     at JSON.parse (<anonymous>)
+2025-10-02T22:04:30:     at async w (.next/server/app/api/products/route.js:1:3089)
+2025-10-02T22:04:30:     at async k (.next/server/app/api/products/route.js:1:6254)
+2025-10-02T22:05:02: 
+2025-10-02T22:05:02: > mini-woo@1.2.1 start
+2025-10-02T22:05:02: > next start
+2025-10-02T22:05:02: 
+2025-10-02T22:05:03:    ▲ Next.js 15.5.4
+2025-10-02T22:05:03:    - Local:        http://localhost:3001
+2025-10-02T22:05:03:    - Network:      http://168.231.125.194:3001
+2025-10-02T22:05:03: 
+2025-10-02T22:05:03:  ✓ Starting...
+2025-10-02T22:05:03:  ✓ Ready in 846ms
+2025-10-02T22:06:25: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T22:06:25: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T22:13:55: 
+2025-10-02T22:13:55: > mini-woo@1.2.1 start
+2025-10-02T22:13:55: > next start
+2025-10-02T22:13:55: 
+2025-10-02T22:13:55:    ▲ Next.js 15.5.4
+2025-10-02T22:13:55:    - Local:        http://localhost:3001
+2025-10-02T22:13:55:    - Network:      http://168.231.125.194:3001
+2025-10-02T22:13:55: 
+2025-10-02T22:13:55:  ✓ Starting...
+2025-10-02T22:13:55:  ✓ Ready in 494ms
+2025-10-02T22:23:18: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T22:23:18: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T22:23:30: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=2&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T22:24:18: SyntaxError: Unexpected token '<', "<html>
+2025-10-02T22:24:18: <h"... is not valid JSON
+2025-10-02T22:24:18:     at JSON.parse (<anonymous>)
+2025-10-02T22:24:18:     at async w (.next/server/app/api/categories/route.js:1:641)
+2025-10-02T22:24:18:     at async k (.next/server/app/api/categories/route.js:1:3253)
+2025-10-02T22:24:18: Products API error: SyntaxError: Unexpected token '<', "<html>
+2025-10-02T22:24:18: <h"... is not valid JSON
+2025-10-02T22:24:18:     at JSON.parse (<anonymous>)
+2025-10-02T22:24:18:     at async w (.next/server/app/api/products/route.js:1:3089)
+2025-10-02T22:24:18:     at async k (.next/server/app/api/products/route.js:1:6254)
+2025-10-02T22:24:30: Products API error: SyntaxError: Unexpected token '<', "<html>
+2025-10-02T22:24:30: <h"... is not valid JSON
+2025-10-02T22:24:30:     at JSON.parse (<anonymous>)
+2025-10-02T22:24:30:     at async w (.next/server/app/api/products/route.js:1:3089)
+2025-10-02T22:24:30:     at async k (.next/server/app/api/products/route.js:1:6254)
+2025-10-02T22:31:19: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T22:31:23: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json"}}
+2025-10-02T22:34:24: Products API error: SyntaxError: Unexpected token '<', "<html>
+2025-10-02T22:34:25: <h"... is not valid JSON
+2025-10-02T22:34:25:     at JSON.parse (<anonymous>)
+2025-10-02T22:34:26:     at async w (.next/server/app/api/products/route.js:1:3089)
+2025-10-02T22:34:27:     at async k (.next/server/app/api/products/route.js:1:6254)
+2025-10-02T22:37:18: SyntaxError: Unexpected token '<', "<html>
+2025-10-02T22:37:18: <h"... is not valid JSON
+2025-10-02T22:37:18:     at JSON.parse (<anonymous>)
+2025-10-02T22:37:18:     at async w (.next/server/app/api/categories/route.js:1:641)
+2025-10-02T22:37:18:     at async k (.next/server/app/api/categories/route.js:1:3253)
+2025-10-02T22:52:20: Telegram Req: {
+2025-10-02T22:52:20:   update_id: 155739084,
+2025-10-02T22:52:20:   my_chat_member: {
+2025-10-02T22:52:20:     chat: {
+2025-10-02T22:52:20:       id: 304147691,
+2025-10-02T22:52:20:       first_name: 'Данил',
+2025-10-02T22:52:20:       username: 'paulstamets',
+2025-10-02T22:52:20:       type: 'private'
+2025-10-02T22:52:20:     },
+2025-10-02T22:52:20:     from: {
+2025-10-02T22:52:20:       id: 304147691,
+2025-10-02T22:52:20:       is_bot: false,
+2025-10-02T22:52:20:       first_name: 'Данил',
+2025-10-02T22:52:20:       username: 'paulstamets',
+2025-10-02T22:52:20:       language_code: 'en',
+2025-10-02T22:52:20:       is_premium: true
+2025-10-02T22:52:20:     },
+2025-10-02T22:52:20:     date: 1759445539,
+2025-10-02T22:52:20:     old_chat_member: { user: [Object], status: 'member' },
+2025-10-02T22:52:20:     new_chat_member: { user: [Object], status: 'kicked', until_date: 0 }
+2025-10-02T22:52:20:   }
+2025-10-02T22:52:20: }
+2025-10-02T22:54:25: 
+2025-10-02T22:54:25: > mini-woo@1.2.1 start
+2025-10-02T22:54:25: > next start
+2025-10-02T22:54:25: 
+2025-10-02T22:54:26:    ▲ Next.js 15.5.4
+2025-10-02T22:54:26:    - Local:        http://localhost:3001
+2025-10-02T22:54:26:    - Network:      http://168.231.125.194:3001
+2025-10-02T22:54:26: 
+2025-10-02T22:54:26:  ✓ Starting...
+2025-10-02T22:54:26:  ✓ Ready in 503ms
+2025-10-02T22:54:45: Fetching products with params: status=publish&per_page=20&page=1
+2025-10-02T22:54:45: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?status=publish&per_page=20&page=1&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json","User-Agent":"Mini-WooCommerce-Client/1.0"}}
+2025-10-02T22:54:45: Successfully fetched 10 products
+2025-10-02T22:54:56: Fetching products with params: status=publish&per_page=20&page=1
+2025-10-02T22:54:56: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?status=publish&per_page=20&page=1&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json","User-Agent":"Mini-WooCommerce-Client/1.0"}}
+2025-10-02T22:54:56: Successfully fetched 10 products
+2025-10-02T22:55:22: Telegram Req: {
+2025-10-02T22:55:22:   update_id: 155739085,
+2025-10-02T22:55:22:   my_chat_member: {
+2025-10-02T22:55:22:     chat: {
+2025-10-02T22:55:22:       id: 304147691,
+2025-10-02T22:55:22:       first_name: 'Данил',
+2025-10-02T22:55:22:       username: 'paulstamets',
+2025-10-02T22:55:22:       type: 'private'
+2025-10-02T22:55:22:     },
+2025-10-02T22:55:22:     from: {
+2025-10-02T22:55:22:       id: 304147691,
+2025-10-02T22:55:22:       is_bot: false,
+2025-10-02T22:55:22:       first_name: 'Данил',
+2025-10-02T22:55:22:       username: 'paulstamets',
+2025-10-02T22:55:22:       language_code: 'en',
+2025-10-02T22:55:22:       is_premium: true
+2025-10-02T22:55:22:     },
+2025-10-02T22:55:22:     date: 1759445722,
+2025-10-02T22:55:22:     old_chat_member: { user: [Object], status: 'kicked', until_date: 0 },
+2025-10-02T22:55:22:     new_chat_member: { user: [Object], status: 'member' }
+2025-10-02T22:55:22:   }
+2025-10-02T22:55:22: }
+2025-10-02T22:55:22: Telegram Req: {
+2025-10-02T22:55:22:   update_id: 155739086,
+2025-10-02T22:55:22:   message: {
+2025-10-02T22:55:22:     message_id: 174,
+2025-10-02T22:55:22:     from: {
+2025-10-02T22:55:22:       id: 304147691,
+2025-10-02T22:55:22:       is_bot: false,
+2025-10-02T22:55:22:       first_name: 'Данил',
+2025-10-02T22:55:22:       username: 'paulstamets',
+2025-10-02T22:55:22:       language_code: 'en',
+2025-10-02T22:55:22:       is_premium: true
+2025-10-02T22:55:22:     },
+2025-10-02T22:55:22:     chat: {
+2025-10-02T22:55:22:       id: 304147691,
+2025-10-02T22:55:22:       first_name: 'Данил',
+2025-10-02T22:55:22:       username: 'paulstamets',
+2025-10-02T22:55:22:       type: 'private'
+2025-10-02T22:55:22:     },
+2025-10-02T22:55:22:     date: 1759445722,
+2025-10-02T22:55:22:     text: '/start',
+2025-10-02T22:55:22:     entities: [ [Object] ]
+2025-10-02T22:55:22:   }
+2025-10-02T22:55:22: }
+2025-10-02T22:55:29: Fetching categories with params: 
+2025-10-02T22:55:29: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json","User-Agent":"Mini-WooCommerce-Client/1.0"}}
+2025-10-02T22:55:29: Fetching products with params: page=1&per_page=20&status=publish
+2025-10-02T22:55:29: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json","User-Agent":"Mini-WooCommerce-Client/1.0"}}
+2025-10-02T22:55:29: Successfully fetched 10 products
+2025-10-02T22:55:29: Successfully fetched 9 categories
+2025-10-02T22:59:36: 
+2025-10-02T22:59:36: > mini-woo@1.2.1 start
+2025-10-02T22:59:36: > next start
+2025-10-02T22:59:36: 
+2025-10-02T22:59:36:    ▲ Next.js 15.5.4
+2025-10-02T22:59:36:    - Local:        http://localhost:3001
+2025-10-02T22:59:36:    - Network:      http://168.231.125.194:3001
+2025-10-02T22:59:36: 
+2025-10-02T22:59:36:  ✓ Starting...
+2025-10-02T22:59:36:  ✓ Ready in 534ms
+2025-10-02T23:00:15: Fetching categories with params: 
+2025-10-02T23:00:15: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json","User-Agent":"Mini-WooCommerce-Client/1.0"}}
+2025-10-02T23:00:15: Fetching products with params: page=1&per_page=20&status=publish
+2025-10-02T23:00:15: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json","User-Agent":"Mini-WooCommerce-Client/1.0"}}
+2025-10-02T23:00:15: Successfully fetched 9 categories
+2025-10-02T23:00:15: Successfully fetched 10 products
+2025-10-02T23:00:46: Fetching categories with params: 
+2025-10-02T23:00:46: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json","User-Agent":"Mini-WooCommerce-Client/1.0"}}
+2025-10-02T23:00:46: Successfully fetched 9 categories
+2025-10-02T23:00:46: Fetching products with params: page=1&per_page=20&status=publish
+2025-10-02T23:00:46: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json","User-Agent":"Mini-WooCommerce-Client/1.0"}}
+2025-10-02T23:00:46: Successfully fetched 10 products
+2025-10-02T23:02:32: Fetching categories with params: 
+2025-10-02T23:02:32: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json","User-Agent":"Mini-WooCommerce-Client/1.0"}}
+2025-10-02T23:02:32: Successfully fetched 9 categories
+2025-10-02T23:02:33: Fetching products with params: page=1&per_page=20&status=publish
+2025-10-02T23:02:33: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json","User-Agent":"Mini-WooCommerce-Client/1.0"}}
+2025-10-02T23:02:33: Successfully fetched 10 products
+2025-10-02T23:09:13: 
+2025-10-02T23:09:13: > mini-woo@1.2.1 start
+2025-10-02T23:09:13: > next start
+2025-10-02T23:09:13: 
+2025-10-02T23:09:13:    ▲ Next.js 15.5.4
+2025-10-02T23:09:13:    - Local:        http://localhost:3001
+2025-10-02T23:09:13:    - Network:      http://168.231.125.194:3001
+2025-10-02T23:09:13: 
+2025-10-02T23:09:13:  ✓ Starting...
+2025-10-02T23:09:13:  ✓ Ready in 514ms
+2025-10-02T23:09:42: Fetching products with params: status=publish&per_page=20&page=1
+2025-10-02T23:09:42: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?status=publish&per_page=20&page=1&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json","User-Agent":"Mini-WooCommerce-Client/1.0"}}
+2025-10-02T23:09:42: Successfully fetched 10 products
+2025-10-02T23:10:40: Fetching categories with params: 
+2025-10-02T23:10:40: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json","User-Agent":"Mini-WooCommerce-Client/1.0"}}
+2025-10-02T23:10:40: Fetching products with params: page=1&per_page=20&status=publish
+2025-10-02T23:10:40: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json","User-Agent":"Mini-WooCommerce-Client/1.0"}}
+2025-10-02T23:10:40: Successfully fetched 9 categories
+2025-10-02T23:10:41: Successfully fetched 10 products
+2025-10-02T23:13:14: Fetching categories with params: 
+2025-10-02T23:13:14: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products/categories?consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json","User-Agent":"Mini-WooCommerce-Client/1.0"}}
+2025-10-02T23:13:14: Fetching products with params: page=1&per_page=20&status=publish
+2025-10-02T23:13:14: Proxy woo: https://badovik.dedyn.io/wp-json/wc/v3/products?page=1&per_page=20&status=publish&consumer_secret=cs_c172b9b427959755cf5c7593b09b98cd0aa9ec18&consumer_key=ck_7e6cbb9089969443c9fff8d7c1b383b4cf6ab029 | {"method":"GET","headers":{"Content-Type":"application/json","User-Agent":"Mini-WooCommerce-Client/1.0"}}
+2025-10-02T23:13:14: Successfully fetched 9 categories
+2025-10-02T23:13:14: Successfully fetched 10 products

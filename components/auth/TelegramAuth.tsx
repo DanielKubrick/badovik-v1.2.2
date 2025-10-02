@@ -8,6 +8,17 @@ declare global {
     Telegram?: {
       WebApp?: {
         initData: string
+        MainButton: {
+          setText: (text: string) => void
+          show: () => void
+          hide: () => void
+          onClick: (callback: () => void) => void
+        }
+        BackButton: {
+          show: () => void
+          hide: () => void
+          onClick: (callback: () => void) => void
+        }
         initDataUnsafe: any
         ready: () => void
         expand: () => void

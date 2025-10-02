@@ -205,7 +205,7 @@ export default function CatalogPage() {
       {/* Header */}
       <header className="store-header">
         <div>
-          <h1 className="store-title">Магазин</h1>
+          <h1 className="store-title">Ассортимент</h1>
         </div>
         <div className="store-header-actions">
           <button 
@@ -269,6 +269,27 @@ export default function CatalogPage() {
           </div>
         ) : (
           <section className="store-products" aria-label="Каталог товаров">
+            {/* Готовые корзины блок */}
+            <div 
+              className="store-product ready-baskets-item"
+              onClick={() => {/* TODO: Готовые корзины функционал */}}
+            >
+              <div>
+                <div className="store-ready-baskets-image" style={{display: "flex", alignItems: "center", justifyContent: "center", width: "74px", height: "74px", backgroundColor: "#f5f5f5", borderRadius: "8px"}}>
+                  <ShoppingCart size={32} className="ready-baskets-icon" />
+                </div>
+                <div className="store-product-label">
+                  <span className="store-product-title">Готовые корзины</span>
+                  <span className="store-product-price">Наборы товаров</span>
+                </div>
+              </div>
+              <div className="store-product-counter"></div>
+              <div className="store-product-buttons">
+                <button className="store-product-incr-button" onClick={(e) => {e.stopPropagation(); /* TODO: Готовые корзины функционал */}}>
+                  <span className="button-item-label">Открыть</span>
+                </button>
+              </div>
+            </div>
             {loading && products.length === 0 ? (
               // Initial loading skeletons
               Array(12).fill(0).map((_, i) => (

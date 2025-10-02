@@ -6,6 +6,7 @@ import { ArrowLeft, User, Phone, Mail, CreditCard, ShoppingBag, CheckCircle } fr
 import { useCart } from "../../components/cart/store";
 import { useToastSuccess, useToastError, useToastWarning } from "@/components/ui/ToastContainer";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
+import { savePendingPayment } from "@/lib/payment-storage";
 
 const formatPrice = (price: number): string => {
   if (price === 0) return 'Уточнить цену';
@@ -28,7 +29,7 @@ export default function CheckoutPage() {
     firstName: '',
     lastName: '',
     phone: '',
-    email: ''
+    telegram: ''
   });
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
   const [currentStep, setCurrentStep] = useState(1);
@@ -64,8 +65,9 @@ export default function CheckoutPage() {
       errors.phone = 'Неверный формат номера телефона';
     }
     
-    if (billingData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(billingData.email)) {
-      errors.email = 'Неверный формат email адреса';
+    // Telegram username validation (optional)
+    if (billingData.telegram && billingData.telegram.trim() && !billingData.telegram.startsWith("@")) {
+      errors.telegram = "Имя пользователя должно начинаться с @";
     }
     
     setFormErrors(errors);
@@ -117,10 +119,26 @@ export default function CheckoutPage() {
         firstName: billingData.firstName,
         lastName: billingData.lastName,
         phone: billingData.phone,
-        email: billingData.email
+        email: billingData.telegram || ''
       });
 
       if (result.success) {
+        // Сохраняем информацию о незавершенной оплате
+        if (result.orderData) {
+          savePendingPayment({
+            orderId: result.orderData.id,
+            orderNumber: result.orderData.orderNumber,
+            total: result.orderData.total,
+            currency: result.orderData.currency,
+            createdAt: new Date().toISOString(),
+            expiresAt: '', // Will be set by savePendingPayment
+            paymentDetails: {
+              cardNumber: '4361 5390 0584 4909',
+              recipient: 'Пальчиков М.М (Банк Компаньон)',
+              paymentDescription: `Оплата заказа №${result.orderData.orderNumber}`
+            }
+          });
+        }
         toastSuccess(
           'Заказ создан!', 
           `Заказ №${result.orderData?.orderNumber} успешно создан`
@@ -277,19 +295,19 @@ export default function CheckoutPage() {
               <div className="checkout-form-group">
                 <label className="telegram-form-label">
                   <Mail size={16} className="form-label-icon" />
-                  Email
+                  Ваш телеграм
                 </label>
                 <input
-                  type="email"
-                  value={billingData.email}
-                  onChange={(e) => handleInputChange('email', e.target.value)}
-                  className={`telegram-form-input ${formErrors.email ? 'error' : ''}`}
-                  placeholder="example@mail.com"
+                  type="text"
+                  value={billingData.telegram}
+                  onChange={(e) => handleInputChange('telegram', e.target.value)}
+                  className={`telegram-form-input ${formErrors.telegram ? 'error' : ''}`}
+                  placeholder="@username"
                   disabled={cart.orderLoading}
                 />
-                {formErrors.email && (
+                {formErrors.telegram && (
                   <div className="form-error-message">
-                    {formErrors.email}
+                    {formErrors.telegram}
                   </div>
                 )}
               </div>
@@ -328,10 +346,10 @@ export default function CheckoutPage() {
                 </div>
               )}
               
-              {billingData.email && (
+              {billingData.telegram && (
                 <div className="checkout-summary-item">
-                  <span className="checkout-summary-label">Email:</span>
-                  <span className="checkout-summary-value">{billingData.email}</span>
+                  <span className="checkout-summary-label">Телеграм:</span>
+                  <span className="checkout-summary-value">{billingData.telegram}</span>
                 </div>
               )}
             </div>

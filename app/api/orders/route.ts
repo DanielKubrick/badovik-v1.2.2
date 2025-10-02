@@ -58,8 +58,19 @@ export async function POST(req: Request) {
     // Генерируем временный ключ заказа (номер будет создан после получения ID от WooCommerce)
     const orderKey = generateOrderKey();
 
+    // Готовим данные заказа - конвертируем telegram username в валидный email
+    const telegramUsername = payload.billing.email;
+    const billingData = {
+      ...payload.billing,
+      // Если это telegram username, конвертируем в псевдо-email для WooCommerce
+      email: telegramUsername && telegramUsername.startsWith('@') 
+        ? `${telegramUsername.slice(1)}@telegram.user`  // @username -> username@telegram.user
+        : telegramUsername || ''
+    };
+
     const orderData = {
       ...payload,
+      billing: billingData,
       set_paid: false,
       status: 'on-hold', // 'ожидает оплаты'
       payment_method: 'bacs',
@@ -68,7 +79,9 @@ export async function POST(req: Request) {
         { key: 'source', value: 'mini-woo-app' },
         { key: 'created_via', value: 'telegram-webapp' },
         { key: 'mini_woo_order_key', value: orderKey },
-        ...(userId ? [{ key: 'mini_woo_user_id', value: userId }] : [])
+        ...(userId ? [{ key: 'mini_woo_user_id', value: userId }] : []),
+        // Сохраняем telegram username в meta_data (если есть)
+        ...(payload.billing.email ? [{ key: 'telegram_username', value: payload.billing.email }] : [])
       ],
     };
 
@@ -137,7 +150,7 @@ export async function POST(req: Request) {
             billingFirstName: payload.billing.first_name,
             billingLastName: payload.billing.last_name,
             billingPhone: payload.billing.phone,
-            billingEmail: payload.billing.email,
+            billingEmail: payload.billing.email, // telegram username
             customerNote: payload.customer_note,
             items: {
               create: payload.line_items.map(item => ({

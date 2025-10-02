@@ -5,14 +5,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Modern Color System */
-  --color-primary: #6366f1;
-  --color-primary-hover: #5855eb;
-  --color-primary-light: #e0e7ff;
+  /* iHerb Inspired Orange Color System */
+  --color-primary: #f97316;
+  --color-primary-hover: #ea580c;
+  --color-primary-light: #fed7aa;
   
-  --color-secondary: #10b981;
-  --color-secondary-hover: #059669;
-  --color-secondary-light: #d1fae5;
+  --color-secondary: #16a34a;
+  --color-secondary-hover: #15803d;
+  --color-secondary-light: #dcfce7;
   
   --color-accent: #f59e0b;
   --color-accent-hover: #d97706;
@@ -23,17 +23,17 @@
   --color-danger-light: #fee2e2;
   
   /* Background & Surface */
-  --color-background: #ffffff;
-  --color-surface: #f8fafc;
+  --color-background: #fafafa;
+  --color-surface: #f5f5f5;
   --color-card: #ffffff;
-  --color-border: #e2e8f0;
-  --color-divider: #f1f5f9;
+  --color-border: #e5e7eb;
+  --color-divider: #f3f4f6;
   
   /* Text Colors */
-  --color-text-primary: #0f172a;
-  --color-text-secondary: #64748b;
-  --color-text-muted: #94a3b8;
-  --color-text-disabled: #cbd5e1;
+  --color-text-primary: #111827;
+  --color-text-secondary: #6b7280;
+  --color-text-muted: #9ca3af;
+  --color-text-disabled: #d1d5db;
   
   /* Spacing System */
   --space-xs: 4px;
@@ -124,7 +124,7 @@ body {
   border-bottom: 1px solid var(--color-border);
   padding: var(--space-lg);
   backdrop-filter: blur(8px);
-  background: rgba(248, 250, 252, 0.95);
+  background: rgba(255, 255, 255, 0.95);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -134,7 +134,7 @@ body {
 .store-title {
   font-size: 28px;
   font-weight: var(--font-weight-bold);
-  color: var(--color-text-primary);
+  color: var(--color-primary);
   margin: 0;
   letter-spacing: -0.025em;
 }
@@ -144,7 +144,7 @@ body {
   align-items: center;
   gap: var(--space-sm);
   padding: 12px 20px;
-  background: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
   color: white;
   border: none;
   border-radius: var(--radius-lg);
@@ -157,7 +157,7 @@ body {
 }
 
 .store-cart-button:hover {
-  background: var(--color-primary-hover);
+  background: linear-gradient(135deg, var(--color-primary-hover), #c2410c);
   transform: translateY(-1px);
   box-shadow: var(--shadow-lg);
 }
@@ -191,7 +191,7 @@ body {
   flex-shrink: 0;
   scroll-snap-align: start;
   padding: 10px 16px;
-  border: 1px solid var(--color-border);
+  border: 2px solid var(--color-border);
   background: var(--color-card);
   color: var(--color-text-secondary);
   border-radius: var(--radius-full);
@@ -203,14 +203,14 @@ body {
 }
 
 .store-category:hover {
-  border-color: var(--color-primary);
+  border-color: var(--color-primary-light);
   color: var(--color-primary);
   transform: translateY(-1px);
   box-shadow: var(--shadow-sm);
 }
 
 .store-category.active {
-  background: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
   border-color: var(--color-primary);
   color: white;
   box-shadow: var(--shadow-md);
@@ -238,7 +238,7 @@ body {
 .store-product {
   position: relative;
   background: var(--color-card);
-  border: 1px solid var(--color-border);
+  border: 2px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-md);
   transition: all var(--animation-normal);
@@ -258,7 +258,7 @@ body {
 .store-product.selected {
   border-color: var(--color-primary);
   background: linear-gradient(135deg, var(--color-primary-light), rgba(255,255,255,0.95));
-  box-shadow: var(--shadow-xl);
+  box-shadow: 0 0 0 2px var(--color-primary-light), var(--shadow-xl);
   transform: translateY(-1px);
 }
 
@@ -279,7 +279,7 @@ body {
   justify-content: center;
   width: 100%;
   height: 100px;
-  background: var(--color-surface);
+  background: linear-gradient(135deg, var(--color-surface), #e5e7eb);
   color: var(--color-text-muted);
   border-radius: var(--radius-md);
   font-size: 28px;
@@ -323,7 +323,7 @@ body {
   right: 8px;
   min-width: 22px;
   height: 22px;
-  background: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
   color: white;
   border-radius: var(--radius-full);
   font-size: 11px;
@@ -334,6 +334,7 @@ body {
   box-shadow: var(--shadow-md);
   scale: 0;
   transition: all var(--animation-normal);
+  border: 2px solid white;
 }
 
 .store-product.selected .store-product-counter {
@@ -350,7 +351,7 @@ body {
 .store-product-incr-button {
   flex: 1;
   padding: 10px 8px;
-  background: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
   color: white;
   border: none;
   border-radius: var(--radius-md);
@@ -360,11 +361,13 @@ body {
   letter-spacing: 0.025em;
   cursor: pointer;
   transition: all var(--animation-fast);
+  box-shadow: var(--shadow-sm);
 }
 
 .store-product-incr-button:hover {
-  background: var(--color-primary-hover);
+  background: linear-gradient(135deg, var(--color-primary-hover), #c2410c);
   transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
 
 .store-product-incr-button:disabled {
@@ -376,7 +379,7 @@ body {
 .store-product-decr-button {
   width: 36px;
   padding: 10px;
-  background: var(--color-danger);
+  background: linear-gradient(135deg, var(--color-danger), var(--color-danger-hover));
   color: white;
   border: none;
   border-radius: var(--radius-md);
@@ -387,6 +390,7 @@ body {
   justify-content: center;
   scale: 0;
   opacity: 0;
+  box-shadow: var(--shadow-sm);
 }
 
 .store-product-decr-button::before {
@@ -401,8 +405,9 @@ body {
 }
 
 .store-product-decr-button:hover {
-  background: var(--color-danger-hover);
+  background: linear-gradient(135deg, var(--color-danger-hover), #b91c1c);
   transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
 
 /* Loading Skeleton */
@@ -497,7 +502,7 @@ body {
   display: inline-flex;
   align-items: center;
   padding: 12px 24px;
-  background: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
   color: white;
   border: none;
   border-radius: var(--radius-md);
@@ -505,11 +510,13 @@ body {
   font-size: 14px;
   cursor: pointer;
   transition: all var(--animation-fast);
+  box-shadow: var(--shadow-md);
 }
 
 .store-retry-btn:hover {
-  background: var(--color-primary-hover);
+  background: linear-gradient(135deg, var(--color-primary-hover), #c2410c);
   transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
 }
 
 /* Sticky Cart */
@@ -521,7 +528,7 @@ body {
   width: 100%;
   max-width: 480px;
   background: var(--color-card);
-  border-top: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-primary);
   padding: var(--space-md) var(--space-lg);
   display: flex;
   justify-content: space-between;
@@ -556,7 +563,7 @@ body {
   display: inline-flex;
   align-items: center;
   padding: 14px 24px;
-  background: var(--color-secondary);
+  background: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-hover));
   color: white;
   border: none;
   border-radius: var(--radius-lg);
@@ -569,7 +576,7 @@ body {
 }
 
 .store-cart-checkout:hover {
-  background: var(--color-secondary-hover);
+  background: linear-gradient(135deg, var(--color-secondary-hover), #166534);
   transform: translateY(-1px);
   box-shadow: var(--shadow-lg);
 }
@@ -680,4 +687,16 @@ body {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
   border-radius: var(--radius-lg);
+}
+
+/* Force Light Theme for Desktop */
+@media (min-width: 768px) {
+  body, html {
+    background-color: #fafafa !important;
+    color: #111827 !important;
+  }
+  
+  .telegram-app {
+    background-color: #fafafa !important;
+  }
 }

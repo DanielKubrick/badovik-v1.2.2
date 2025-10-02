@@ -1,5 +1,5 @@
 //https://core.telegram.org/bots/payments/currencies.json
-export default {
+const telegramCurrencies = {
     "AED": {
         "code": "AED",
         "title": "United Arab Emirates Dirham",
@@ -1118,4 +1118,6 @@ export default {
         "min_amount": "1922",
         "max_amount": "19226494"
     }
-}
+};
+
+export default telegramCurrencies;

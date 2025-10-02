@@ -1,5 +1,5 @@
 :root {
-  --main-color: #0084ff;
+  --main-color: #f97316;
   --block-bg-color: #ffffff;
   --text-color: #000000;
   --secondary-text-color: #999999;
@@ -55,13 +55,13 @@
   font-weight: 600;
   cursor: pointer;
   transition: all var(--animation);
-  box-shadow: 0 2px 8px rgba(0, 132, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(249, 115, 22, 0.2);
 }
 
 .store-cart-button:hover {
   opacity: 0.9;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 132, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
 }
 
 .store-cart-icon {
@@ -103,7 +103,7 @@
 .store-category.active {
   background: var(--main-color);
   color: white;
-  box-shadow: 0 2px 8px rgba(0, 132, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(249, 115, 22, 0.3);
 }
 
 .store-category:hover:not(.active) {
@@ -152,9 +152,9 @@
 
 .store-product.selected {
   border: 2px solid var(--main-color);
-  background: linear-gradient(135deg, rgba(0, 132, 255, 0.05), white);
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.05), white);
   transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(0, 132, 255, 0.2);
+  box-shadow: 0 4px 16px rgba(249, 115, 22, 0.2);
 }
 
 /* Product Image */
@@ -238,7 +238,7 @@
   transform: scale(0);
   transition: all var(--animation);
   z-index: 2;
-  box-shadow: 0 2px 8px rgba(0, 132, 255, 0.4);
+  box-shadow: 0 2px 8px rgba(249, 115, 22, 0.4);
 }
 
 .store-product.selected .store-product-counter {
@@ -267,7 +267,7 @@
 }
 
 .store-product-incr-button:hover {
-  background: #0066cc;
+  background: #ea580c;
   transform: translateY(-1px);
 }
 
@@ -405,7 +405,7 @@
 }
 
 .store-retry-btn:hover {
-  background: #0066cc;
+  background: #ea580c;
   transform: translateY(-1px);
 }
 
@@ -459,13 +459,13 @@
   cursor: pointer;
   white-space: nowrap;
   transition: all var(--animation);
-  box-shadow: 0 2px 8px rgba(0, 132, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(249, 115, 22, 0.3);
 }
 
 .store-cart-checkout:hover {
-  background: #0066cc;
+  background: #ea580c;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 132, 255, 0.4);
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
 }
 
 /* Load More */

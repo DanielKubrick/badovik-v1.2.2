@@ -1,0 +1,83 @@
+2025-10-02T18:04:52:  ⚠ Unsupported metadata viewport is configured in metadata export in /product/[id]. Please move it to viewport export instead.
+2025-10-02T18:04:52: Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+2025-10-02T18:04:52:  ⚠ Unsupported metadata themeColor is configured in metadata export in /product/[id]. Please move it to viewport export instead.
+2025-10-02T18:04:52: Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+2025-10-02T19:13:39:  ⚠ Unsupported metadata viewport is configured in metadata export in /product/[id]. Please move it to viewport export instead.
+2025-10-02T19:13:39: Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+2025-10-02T19:13:39:  ⚠ Unsupported metadata themeColor is configured in metadata export in /product/[id]. Please move it to viewport export instead.
+2025-10-02T19:13:39: Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+2025-10-02T21:57:40: SyntaxError: Unexpected token '<', "<html>
+2025-10-02T21:57:40: <h"... is not valid JSON
+2025-10-02T21:57:40:     at JSON.parse (<anonymous>)
+2025-10-02T21:57:40:     at async w (.next/server/app/api/categories/route.js:1:641)
+2025-10-02T21:57:40:     at async k (.next/server/app/api/categories/route.js:1:3253)
+2025-10-02T21:57:41: Products API error: SyntaxError: Unexpected token '<', "<html>
+2025-10-02T21:57:41: <h"... is not valid JSON
+2025-10-02T21:57:41:     at JSON.parse (<anonymous>)
+2025-10-02T21:57:41:     at async w (.next/server/app/api/products/route.js:1:3089)
+2025-10-02T21:57:41:     at async k (.next/server/app/api/products/route.js:1:6254)
+2025-10-02T21:57:46: Products API error: SyntaxError: Unexpected token '<', "<html>
+2025-10-02T21:57:46: <h"... is not valid JSON
+2025-10-02T21:57:46:     at JSON.parse (<anonymous>)
+2025-10-02T21:57:46:     at async w (.next/server/app/api/products/route.js:1:3089)
+2025-10-02T21:57:46:     at async k (.next/server/app/api/products/route.js:1:6254)
+2025-10-02T21:57:57: SyntaxError: Unexpected token '<', "<html>
+2025-10-02T21:57:57: <h"... is not valid JSON
+2025-10-02T21:57:57:     at JSON.parse (<anonymous>)
+2025-10-02T21:57:57:     at async w (.next/server/app/api/categories/route.js:1:641)
+2025-10-02T21:57:57:     at async k (.next/server/app/api/categories/route.js:1:3253)
+2025-10-02T21:57:57: Products API error: SyntaxError: Unexpected token '<', "<html>
+2025-10-02T21:57:57: <h"... is not valid JSON
+2025-10-02T21:57:57:     at JSON.parse (<anonymous>)
+2025-10-02T21:57:57:     at async w (.next/server/app/api/products/route.js:1:3089)
+2025-10-02T21:57:57:     at async k (.next/server/app/api/products/route.js:1:6254)
+2025-10-02T21:58:04: Products API error: SyntaxError: Unexpected token '<', "<html>
+2025-10-02T21:58:04: <h"... is not valid JSON
+2025-10-02T21:58:04:     at JSON.parse (<anonymous>)
+2025-10-02T21:58:04:     at async w (.next/server/app/api/products/route.js:1:3089)
+2025-10-02T21:58:04:     at async k (.next/server/app/api/products/route.js:1:6254)
+2025-10-02T21:58:50: SyntaxError: Unexpected token '<', "<html>
+2025-10-02T21:58:50: <h"... is not valid JSON
+2025-10-02T21:58:50:     at JSON.parse (<anonymous>)
+2025-10-02T21:58:50:     at async w (.next/server/app/api/categories/route.js:1:641)
+2025-10-02T21:58:50:     at async k (.next/server/app/api/categories/route.js:1:3253)
+2025-10-02T21:58:50: Products API error: SyntaxError: Unexpected token '<', "<html>
+2025-10-02T21:58:50: <h"... is not valid JSON
+2025-10-02T21:58:50:     at JSON.parse (<anonymous>)
+2025-10-02T21:58:50:     at async w (.next/server/app/api/products/route.js:1:3089)
+2025-10-02T21:58:50:     at async k (.next/server/app/api/products/route.js:1:6254)
+2025-10-02T22:04:30: SyntaxError: Unexpected token '<', "<html>
+2025-10-02T22:04:30: <h"... is not valid JSON
+2025-10-02T22:04:30:     at JSON.parse (<anonymous>)
+2025-10-02T22:04:30:     at async w (.next/server/app/api/categories/route.js:1:641)
+2025-10-02T22:04:30:     at async k (.next/server/app/api/categories/route.js:1:3253)
+2025-10-02T22:04:30: Products API error: SyntaxError: Unexpected token '<', "<html>
+2025-10-02T22:04:30: <h"... is not valid JSON
+2025-10-02T22:04:30:     at JSON.parse (<anonymous>)
+2025-10-02T22:04:30:     at async w (.next/server/app/api/products/route.js:1:3089)
+2025-10-02T22:04:30:     at async k (.next/server/app/api/products/route.js:1:6254)
+2025-10-02T22:24:18: SyntaxError: Unexpected token '<', "<html>
+2025-10-02T22:24:18: <h"... is not valid JSON
+2025-10-02T22:24:18:     at JSON.parse (<anonymous>)
+2025-10-02T22:24:18:     at async w (.next/server/app/api/categories/route.js:1:641)
+2025-10-02T22:24:18:     at async k (.next/server/app/api/categories/route.js:1:3253)
+2025-10-02T22:24:18: Products API error: SyntaxError: Unexpected token '<', "<html>
+2025-10-02T22:24:18: <h"... is not valid JSON
+2025-10-02T22:24:18:     at JSON.parse (<anonymous>)
+2025-10-02T22:24:18:     at async w (.next/server/app/api/products/route.js:1:3089)
+2025-10-02T22:24:18:     at async k (.next/server/app/api/products/route.js:1:6254)
+2025-10-02T22:24:30: Products API error: SyntaxError: Unexpected token '<', "<html>
+2025-10-02T22:24:30: <h"... is not valid JSON
+2025-10-02T22:24:30:     at JSON.parse (<anonymous>)
+2025-10-02T22:24:30:     at async w (.next/server/app/api/products/route.js:1:3089)
+2025-10-02T22:24:30:     at async k (.next/server/app/api/products/route.js:1:6254)
+2025-10-02T22:34:24: Products API error: SyntaxError: Unexpected token '<', "<html>
+2025-10-02T22:34:25: <h"... is not valid JSON
+2025-10-02T22:34:25:     at JSON.parse (<anonymous>)
+2025-10-02T22:34:26:     at async w (.next/server/app/api/products/route.js:1:3089)
+2025-10-02T22:34:27:     at async k (.next/server/app/api/products/route.js:1:6254)
+2025-10-02T22:37:18: SyntaxError: Unexpected token '<', "<html>
+2025-10-02T22:37:18: <h"... is not valid JSON
+2025-10-02T22:37:18:     at JSON.parse (<anonymous>)
+2025-10-02T22:37:18:     at async w (.next/server/app/api/categories/route.js:1:641)
+2025-10-02T22:37:18:     at async k (.next/server/app/api/categories/route.js:1:3253)

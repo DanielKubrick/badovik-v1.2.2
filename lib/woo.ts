@@ -16,12 +16,12 @@ function get(api: string, query?: URLSearchParams) {
     return call("GET", api, query, undefined)
 }
 
-function call(method: string, api: string, query?: URLSearchParams, body?: any) {
+async function call(method: string, api: string, query?: URLSearchParams, body?: any) {
     const headers = {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "User-Agent": "Mini-WooCommerce-Client/1.0"
     };
 
-    // ИСПРАВЛЕНО: убираем проблемную замену, которая ломала https://
     let url = `${WOOCOMMERCE_URL}/wp-json/wc/v3/${api}`;
     
     if (!query)
@@ -33,11 +33,34 @@ function call(method: string, api: string, query?: URLSearchParams, body?: any) 
     if (body)
         body = JSON.stringify(body)
 
-    let init = {body, method, headers};
+    let init = {
+        body, 
+        method, 
+        headers,
+        timeout: 60000 // 60 second timeout
+    };
 
-    console.log(`Proxy woo: ${url} | ${JSON.stringify(init)}`);
+    console.log(`Proxy woo: ${url} | ${JSON.stringify({method, headers})}`);
 
-    return fetch(url, init);
+    try {
+        const response = await fetch(url, init);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+            const text = await response.text();
+            console.error(`Non-JSON response from WooCommerce API: ${text.substring(0, 200)}...`);
+            throw new Error('WooCommerce API returned non-JSON response');
+        }
+        
+        return response;
+    } catch (error) {
+        console.error(`WooCommerce API call failed: ${method} ${url}`, error);
+        throw error;
+    }
 }
 
 async function createOrder(line_items: any[], customer_note: string) {
@@ -88,7 +111,6 @@ function setOrderPaid(orderId: number) {
     }
     return updateOrder(orderId, update)
 }
-
 
 async function getShippingOptions(zoneId: number) {
     const res = await woo.get(`shipping/zones/${zoneId}/methods`)
