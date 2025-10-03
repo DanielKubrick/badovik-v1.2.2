@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Фон -->
+  <rect width="200" height="200" fill="#FFF5F0" rx="20"/>
+  
+  <!-- Корзина -->
+  <path d="M 50 80 L 60 140 C 60 145 65 150 70 150 L 130 150 C 135 150 140 145 140 140 L 150 80 Z" 
+        fill="#FF6B35" opacity="0.2"/>
+  
+  <!-- Ручка корзины -->
+  <path d="M 65 80 Q 100 55 135 80" 
+        stroke="#FF6B35" 
+        stroke-width="4" 
+        fill="none" 
+        stroke-linecap="round"/>
+  
+  <!-- Основная корзина -->
+  <path d="M 50 80 L 60 140 C 60 145 65 150 70 150 L 130 150 C 135 150 140 145 140 140 L 150 80 Z" 
+        fill="none" 
+        stroke="#FF6B35" 
+        stroke-width="3"/>
+  
+  <!-- Верхняя линия корзины -->
+  <line x1="45" y1="80" x2="155" y2="80" stroke="#FF6B35" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Бутылка 1 -->
+  <rect x="70" y="95" width="15" height="35" rx="2" fill="#FF6B35"/>
+  <rect x="70" y="90" width="15" height="8" rx="3" fill="#FF8C42"/>
+  
+  <!-- Бутылка 2 -->
+  <rect x="92" y="90" width="16" height="40" rx="2" fill="#FF8C42"/>
+  <rect x="92" y="85" width="16" height="8" rx="3" fill="#FFA060"/>
+  
+  <!-- Бутылка 3 -->
+  <rect x="115" y="95" width="15" height="35" rx="2" fill="#FF6B35"/>
+  <rect x="115" y="90" width="15" height="8" rx="3" fill="#FF8C42"/>
+  
+  <!-- Звездочка "специального предложения" -->
+  <circle cx="155" cy="65" r="18" fill="#FF6B35"/>
+  <path d="M 155 52 L 157 60 L 165 60 L 159 65 L 161 73 L 155 68 L 149 73 L 151 65 L 145 60 L 153 60 Z" 
+        fill="white"/>
+  
+  <!-- Плюсик на звездочке -->
+  <text x="155" y="68" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">+</text>
+</svg>

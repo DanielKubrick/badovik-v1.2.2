@@ -270,14 +270,15 @@ export default function CatalogPage() {
         ) : (
           <section className="store-products" aria-label="Каталог товаров">
             {/* Готовые корзины блок */}
-            <div 
-              className="store-product ready-baskets-item"
-              onClick={() => {/* TODO: Готовые корзины функционал */}}
-            >
-              <div>
-                <div className="store-ready-baskets-image" style={{display: "flex", alignItems: "center", justifyContent: "center", width: "74px", height: "74px", backgroundColor: "#f5f5f5", borderRadius: "8px"}}>
-                  <img src="/cart-photo.png" alt="Готовые корзины" width="74" height="74" className="ready-baskets-icon" style={{objectFit: "contain"}} />
-                </div>
+            <div className="store-product ready-baskets-item">
+              <div onClick={() => {/* TODO: Готовые корзины функционал */}}>
+                <img
+                  src="https://badovik.dedyn.io/wp-content/uploads/ready-baskets-image.png"
+                  alt="Готовые корзины"
+                  width={74}
+                  height={74}
+                  style={{objectFit: "contain"}}
+                />
                 <div className="store-product-label">
                   <span className="store-product-title">Готовые корзины</span>
                   <span className="store-product-price">Наборы товаров</span>

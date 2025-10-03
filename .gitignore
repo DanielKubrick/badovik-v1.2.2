@@ -39,3 +39,28 @@ next-env.d.ts
 .env
 .env
 .env
+
+# Database files
+*.db
+*.db-journal
+
+# Logs
+/logs/
+*.log
+
+# Backup files
+*.backup*
+*.bak
+
+# PM2
+ecosystem.config.js
+
+# Sensitive data
+*.pem
+*.key
+/restore-backup.sh
+/create-backup.sh
+
+# Temporary files
+*.tmp
+*.temp
