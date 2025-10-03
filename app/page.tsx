@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState, useCallback, useRef } from "react";
 import { useCart } from "../components/cart/store";
-import { ShoppingCart, Filter } from "lucide-react";
+import { useSearch } from "../contexts/SearchContext";
 
 type Product = { 
   id: number; 
@@ -63,6 +63,7 @@ export default function CatalogPage() {
   const [hasMore, setHasMore] = useState(true);
   const [totalProducts, setTotalProducts] = useState(0);
   const cart = useCart();
+  const { searchQuery } = useSearch();
   const observerRef = useRef<IntersectionObserver | null>(null);
   const loadMoreRef = useRef<HTMLDivElement>(null);
 
@@ -150,7 +151,7 @@ export default function CatalogPage() {
       setLoading(false);
       setLoadingMore(false);
     }
-  }, [selectedCategory, products.length]);
+  }, [selectedCategory, searchQuery, products.length]);
 
   // Initial load and reset on filter change
   useEffect(() => {
@@ -201,26 +202,8 @@ export default function CatalogPage() {
   }
 
   return (
-    <div className="store-app">
-      {/* Header */}
-      <header className="store-header">
-        <div>
-          <h1 className="store-title">Ассортимент</h1>
-        </div>
-        <div className="store-header-actions">
-          <button 
-            onClick={() => router.push("/cart")}
-            className="store-cart-button"
-            aria-label={`Корзина, товаров: ${cartCount}`}
-          >
-            <ShoppingCart className="store-cart-icon" />
-            <span>Корзина</span>
-            {cartCount > 0 && <span>({cartCount})</span>}
-          </button>
-        </div>
-      </header>
-
-      {/* Categories */}
+    <div className="store-app" style={{ paddingTop: "0" }}>
+{/* Categories */}
       {categories.length > 0 && (
         <nav className="store-categories" aria-label="Категории товаров">
           <button 
