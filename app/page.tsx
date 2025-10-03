@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState, useCallback, useRef } from "react";
 import { useCart } from "../components/cart/store";
 import { useSearch } from "../contexts/SearchContext";
+import CategoryGrid from "../components/CategoryGrid";
 
 type Product = { 
   id: number; 
@@ -203,6 +204,11 @@ export default function CatalogPage() {
 
   return (
     <div className="store-app" style={{ paddingTop: "0" }}>
+      {/* Category Grid Section */}
+      <div style={{ padding: "0 16px" }}>
+        <CategoryGrid />
+      </div>
+
 {/* Categories */}
       {categories.length > 0 && (
         <nav className="store-categories" aria-label="Категории товаров">
@@ -479,3 +485,4 @@ function StoreItemSkeleton() {
     </div>
   );
 }
+
