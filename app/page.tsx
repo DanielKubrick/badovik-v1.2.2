@@ -276,7 +276,7 @@ export default function CatalogPage() {
             >
               <div>
                 <div className="store-ready-baskets-image" style={{display: "flex", alignItems: "center", justifyContent: "center", width: "74px", height: "74px", backgroundColor: "#f5f5f5", borderRadius: "8px"}}>
-                  <ShoppingCart size={32} className="ready-baskets-icon" />
+                  <img src="/cart-photo.png" alt="Готовые корзины" width="74" height="74" className="ready-baskets-icon" style={{objectFit: "contain"}} />
                 </div>
                 <div className="store-product-label">
                   <span className="store-product-title">Готовые корзины</span>
