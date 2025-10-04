@@ -64,3 +64,7 @@ ecosystem.config.js
 # Temporary files
 *.tmp
 *.temp
+
+# PM2 logs
+logs/
+*.log
