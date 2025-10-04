@@ -9,7 +9,8 @@ const CategoryGrid: React.FC = () => {
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+      // Устанавливаем breakpoint на 320px для мобильных устройств
+      setIsMobile(window.innerWidth <= 480);
     };
     
     checkMobile();
@@ -18,14 +19,14 @@ const CategoryGrid: React.FC = () => {
   }, []);
 
   return (
-    <section style={{ width: '100%', paddingTop: '32px', paddingBottom: '32px' }}>
+    <section style={{ width: '100%', paddingTop: '16px', paddingBottom: '16px' }}>
       {/* Section Header */}
       <h2 style={{
-        fontSize: '24px',
+        fontSize: '20px', // Уменьшили с 24px
         fontWeight: '700',
-        marginBottom: '24px',
+        marginBottom: '16px', // Уменьшили с 24px
         color: '#111827',
-        margin: '0 0 24px 0'
+        margin: '0 0 16px 0'
       }}>
         Категории товаров
       </h2>
@@ -33,8 +34,8 @@ const CategoryGrid: React.FC = () => {
       {/* Categories Grid */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)',
-        gap: '16px'
+        gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)', // 2 колонки на мобильных, 4 на десктопе
+        gap: '12px' // Изменили с 16px на 12px
       }}>
         {categories.map((category) => (
           <CategoryCard 

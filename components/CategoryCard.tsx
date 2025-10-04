@@ -28,18 +28,20 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ category }) => {
     <Link href={href} style={{ textDecoration: 'none' }}>
       <div 
         style={{
-          borderRadius: '16px',
+          borderRadius: '8px', // Уменьшили с 16px
           backgroundColor: '#f9fafb',
           transition: 'all 0.2s ease',
-          padding: '24px',
+          padding: '12px', // Изменили с 24px на 12px
           cursor: 'pointer',
           transform: 'scale(1)',
+          minHeight: '90px', // Добавили минимальную высоту
+          border: '1px solid #e5e7eb',
         }}
         onMouseEnter={(e) => {
           const target = e.currentTarget;
           target.style.backgroundColor = '#f3f4f6';
-          target.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)';
-          target.style.transform = 'scale(1.05)';
+          target.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)';
+          target.style.transform = 'scale(1.02)'; // Уменьшили hover эффект
         }}
         onMouseLeave={(e) => {
           const target = e.currentTarget;
@@ -52,21 +54,23 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ category }) => {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: '16px'
+          justifyContent: 'center',
+          gap: '8px', // Уменьшили с 16px
+          height: '100%'
         }}>
           {/* Icon */}
           <div style={{ color: iconColor }}>
-            <Icon size={48} strokeWidth={1.5} />
+            <Icon size={32} strokeWidth={1.5} /> {/* Изменили с 48px на 32px */}
           </div>
           
           {/* Text */}
           <h3 style={{
             fontWeight: '600',
-            fontSize: '18px',
+            fontSize: '12px', // Изменили с 18px на 12px
             color: '#1f2937',
             textAlign: 'center',
             margin: 0,
-            lineHeight: '1.2'
+            lineHeight: '1.3'
           }}>
             {name}
           </h3>

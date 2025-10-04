@@ -210,27 +210,6 @@ export default function CatalogPage() {
       </div>
 
 {/* Categories */}
-      {categories.length > 0 && (
-        <nav className="store-categories" aria-label="Категории товаров">
-          <button 
-            onClick={() => setSelectedCategory(undefined)}
-            className={`store-category ${!selectedCategory ? "active" : ""}`}
-            aria-pressed={!selectedCategory}
-          >
-            Все товары
-          </button>
-          {categories.slice(0, 6).map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setSelectedCategory(cat.id)}
-              className={`store-category ${selectedCategory === cat.id ? "active" : ""}`}
-              aria-pressed={selectedCategory === cat.id}
-            >
-              {cat.name}
-            </button>
-          ))}
-        </nav>
-      )}
 
       {/* Products Count */}
       {totalProducts > 0 && (
@@ -258,28 +237,6 @@ export default function CatalogPage() {
           </div>
         ) : (
           <section className="store-products" aria-label="Каталог товаров">
-            {/* Готовые корзины блок */}
-            <div className="store-product ready-baskets-item">
-              <div onClick={() => {/* TODO: Готовые корзины функционал */}}>
-                <img
-                  src="https://badovik.dedyn.io/wp-content/uploads/ready-baskets-image.png"
-                  alt="Готовые корзины"
-                  width={74}
-                  height={74}
-                  style={{objectFit: "contain"}}
-                />
-                <div className="store-product-label">
-                  <span className="store-product-title">Готовые корзины</span>
-                  <span className="store-product-price">Наборы товаров</span>
-                </div>
-              </div>
-              <div className="store-product-counter"></div>
-              <div className="store-product-buttons">
-                <button className="store-product-incr-button" onClick={(e) => {e.stopPropagation(); /* TODO: Готовые корзины функционал */}}>
-                  <span className="button-item-label">Открыть</span>
-                </button>
-              </div>
-            </div>
             {loading && products.length === 0 ? (
               // Initial loading skeletons
               Array(12).fill(0).map((_, i) => (
