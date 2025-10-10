@@ -24,7 +24,7 @@ const CategoryPage = () => {
           Категория не найдена
         </h1>
         <Link href="/" style={{
-          color: '#f97316',
+          color: '#16a34a',
           textDecoration: 'none',
           fontSize: '16px'
         }}>
@@ -119,7 +119,7 @@ const CategoryPage = () => {
           style={{
             display: 'inline-flex',
             alignItems: 'center',
-            backgroundColor: '#f97316',
+            backgroundColor: '#16a34a',
             color: 'white',
             padding: '12px 24px',
             borderRadius: '8px',
@@ -129,7 +129,7 @@ const CategoryPage = () => {
             transition: 'background-color 0.2s ease'
           }}
           onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#ea580c'}
-          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#f97316'}
+          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#16a34a'}
         >
           <ArrowLeft size={16} />
           Вернуться к каталогу

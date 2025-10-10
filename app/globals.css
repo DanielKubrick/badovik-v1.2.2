@@ -5,14 +5,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* iHerb Inspired Orange Color System */
-  --color-primary: #f97316;
-  --color-primary-hover: #ea580c;
-  --color-primary-light: #fed7aa;
+  /* iHerb Inspired Green Color System */
+  --color-primary: #16a34a; /* Изменено на зеленый */
+  --color-primary-hover: #15803d;
+  --color-primary-light: #dcfce7;
   
-  --color-secondary: #16a34a;
-  --color-secondary-hover: #15803d;
-  --color-secondary-light: #dcfce7;
+  --color-secondary: #f97316; /* Оранжевый как secondary */
+  --color-secondary-hover: #ea580c;
+  --color-secondary-light: #fed7aa;
   
   --color-accent: #f59e0b;
   --color-accent-hover: #d97706;

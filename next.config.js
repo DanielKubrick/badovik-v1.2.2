@@ -1,14 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  basePath: '',
+  assetPrefix: 'https://badovik.shop',
   images: {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'badovik.dedyn.io',
+        hostname: 'badovik.shop',
         pathname: '/wp-content/uploads/**',
       },
     ],
-    unoptimized: true, // Отключаем оптимизацию изображений для простоты
+    unoptimized: false, // Включаем оптимизацию изображений для производительности
   },
   async headers() {
     return [
@@ -27,7 +29,7 @@ const nextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
+            value: 'no-cache, no-store, must-revalidate',
           },
         ],
       },

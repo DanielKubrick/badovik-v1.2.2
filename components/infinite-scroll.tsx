@@ -1,33 +1,31 @@
-import {CSSProperties, useEffect, useRef} from "react";
+import {CSSProperties, useEffect, useRef, useCallback} from "react";
 
-export default function InfiniteScroll({callback, hasMore, loading}: {
+export default function InfiniteScroll({
+    callback, 
+    hasMore, 
+    loading
+}: {
     callback: () => void,
     hasMore: boolean,
     loading: boolean
 }) {
-    const observerTarget = useRef(null)
+    const observer = useRef<IntersectionObserver | null>(null);
+    const observerTarget = useCallback((node: HTMLDivElement) => {
+        if (loading || !hasMore) return;
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
+        if (observer.current) observer.current.disconnect();
+
+        observer.current = new IntersectionObserver(
             entries => {
                 if (entries[0].isIntersecting) {
                     callback();
-                    observer.unobserve(entries[0].target)
                 }
             },
             {threshold: 0.1}
         );
 
-        if (observerTarget.current) {
-            observer.observe(observerTarget.current);
-        }
-
-        return () => {
-            if (observerTarget.current) {
-                observer.unobserve(observerTarget.current);
-            }
-        };
-    }, [observerTarget, callback])
+        if (node) observer.current.observe(node);
+    }, [loading, hasMore, callback]);
 
     const style = {
         width: "100%",

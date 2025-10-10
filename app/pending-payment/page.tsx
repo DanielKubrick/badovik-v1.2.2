@@ -1,7 +1,7 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 export default function PendingPaymentPage() {
   const router = useRouter()
@@ -35,13 +35,13 @@ export default function PendingPaymentPage() {
     }
   }
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     router.push('/')
-  }
+  }, [router])
 
-  const handlePaymentComplete = () => {
+  const handlePaymentComplete = useCallback(() => {
     router.push('/')
-  }
+  }, [router])
 
   // Инициализация Telegram Web App
   useEffect(() => {
@@ -64,7 +64,7 @@ export default function PendingPaymentPage() {
         tg.BackButton.hide()
       }
     }
-  }, [router])
+  }, [handleClose, handlePaymentComplete])
 
   return (
     <div className="telegram-payment-page">

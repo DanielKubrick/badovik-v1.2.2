@@ -1,5 +1,6 @@
 "use client"
 import {useAppContext} from "@/providers/context-provider";
+import Image from "next/image";
 
 export default function OrderItem({id}: { id: number }) {
     const {state, dispatch} = useAppContext()
@@ -7,7 +8,7 @@ export default function OrderItem({id}: { id: number }) {
     const cartItem = state.cart.get(id)!!
     const product = cartItem.product
     const image = product.images[0] ?
-        {src: product.images[0].src, alt: product.images[0].alt || ""} :
+        {src: product.images[0].src, alt: product.images[0].alt || product.name} : // Добавлен alt
         {src: "/no-image.png", alt: "no image", style: {filter: "invert(0.5)"}}
 
     return (
@@ -15,8 +16,9 @@ export default function OrderItem({id}: { id: number }) {
              onClick={() => dispatch({type: "item", product})}
         >
             <div className="order-item-photo">
-                <img
-                    {...image}
+                <Image
+                    src={image.src}
+                    alt={image.alt}
                     width={40}
                     height={40}
                 />

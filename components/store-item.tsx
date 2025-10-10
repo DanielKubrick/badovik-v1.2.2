@@ -1,12 +1,13 @@
 "use client"
 import {Product, useAppContext} from "@/providers/context-provider";
+import Image from "next/image";
 
 export default function StoreItem({product}: { product: Product }) {
     const {state, dispatch} = useAppContext()
     const id = product.id
     const cartItem = state.cart.get(id)
     const image = product.images[0] ?
-        {src: product.images[0].src, alt: product.images[0].alt || ""} :
+        {src: product.images[0].src, alt: product.images[0].alt || product.name} : // Добавлен alt
         {src: "/no-image.png", alt: "no image"}
 
     return (
@@ -14,8 +15,9 @@ export default function StoreItem({product}: { product: Product }) {
             <div
                 onClick={() => dispatch({type: "item", product})}
             >
-                <img
-                    {...image}
+                <Image
+                    src={image.src}
+                    alt={image.alt}
                     width={74}
                     height={74}
                 />

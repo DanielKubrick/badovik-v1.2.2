@@ -4,6 +4,7 @@ import { useEffect, useState, useCallback, useRef } from "react";
 import { useCart } from "../components/cart/store";
 import { useSearch } from "../contexts/SearchContext";
 import CategoryGrid from "../components/CategoryGrid";
+import Image from "next/image";
 
 type Product = { 
   id: number; 
@@ -68,6 +69,11 @@ export default function CatalogPage() {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const loadMoreRef = useRef<HTMLDivElement>(null);
 
+  // Оборачиваем cart.add в useCallback
+  const handleAddToCart = useCallback(async (product: any, qty?: number) => {
+    await cart.add(product, qty);
+  }, [cart]);
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -119,6 +125,11 @@ export default function CatalogPage() {
         params.set('category', selectedCategory.toString());
       }
 
+      // Добавляем searchQuery в параметры запроса, если он есть
+      if (searchQuery) {
+        params.set('search', searchQuery);
+      }
+
       const response = await fetch(`/api/products?${params.toString()}`);
 
       if (!response.ok) {
@@ -152,7 +163,17 @@ export default function CatalogPage() {
       setLoading(false);
       setLoadingMore(false);
     }
-  }, [selectedCategory, searchQuery, products.length]);
+  }, [
+    selectedCategory,
+    searchQuery,
+    products.length,
+    setLoading,
+    setError,
+    setLoadingMore,
+    setProducts,
+    setTotalProducts,
+    setHasMore
+  ]);
 
   // Initial load and reset on filter change
   useEffect(() => {
@@ -162,7 +183,7 @@ export default function CatalogPage() {
     setPage(1);
     setHasMore(true);
     loadProducts(1, true);
-  }, [mounted, selectedCategory]);
+  }, [mounted, selectedCategory, loadProducts, setProducts, setPage, setHasMore]);
 
   // Intersection Observer for infinite scroll
   useEffect(() => {
@@ -248,7 +269,7 @@ export default function CatalogPage() {
                 <StoreItem 
                   key={product.id} 
                   product={product} 
-                  onAddToCart={cart.add}
+                  onAddToCart={handleAddToCart} // Передаем обернутую функцию
                 />
               ))
             )}
@@ -377,7 +398,7 @@ function StoreItem({
     >
       <div className="store-product-image-wrapper">
         {product.images?.[0]?.src ? (
-          <img
+          <Image
             src={product.images[0].src}
             alt={product.name}
             width={120}

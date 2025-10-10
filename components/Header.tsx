@@ -60,13 +60,13 @@ const Header = () => {
             style={{
               fontSize: '20px',
               fontWeight: '700',
-              color: '#f97316',
+              color: '#16a34a',
               cursor: 'pointer',
               transition: 'color 0.2s ease',
               userSelect: 'none'
             }}
             onMouseEnter={(e) => e.currentTarget.style.color = '#ea580c'}
-            onMouseLeave={(e) => e.currentTarget.style.color = '#f97316'}
+            onMouseLeave={(e) => e.currentTarget.style.color = '#16a34a'}
           >
             Mini Woo
           </div>
@@ -98,7 +98,7 @@ const Header = () => {
               transition: 'color 0.2s ease',
               borderRadius: '4px'
             }}
-            onMouseEnter={(e) => e.currentTarget.style.color = '#f97316'}
+            onMouseEnter={(e) => e.currentTarget.style.color = '#16a34a'}
             onMouseLeave={(e) => e.currentTarget.style.color = '#6b7280'}
             aria-label={`Корзина (${count} товаров)`}
           >
@@ -108,7 +108,7 @@ const Header = () => {
                 position: 'absolute',
                 top: '-2px',
                 right: '-2px',
-                backgroundColor: '#f97316',
+                backgroundColor: '#16a34a',
                 color: 'white',
                 fontSize: '12px',
                 fontWeight: '600',

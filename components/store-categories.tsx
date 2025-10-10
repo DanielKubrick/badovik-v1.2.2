@@ -1,13 +1,17 @@
 "use client"
 import {fetchCategories, useAppContext} from "@/providers/context-provider";
-import {useEffect} from "react";
+import {useEffect, useCallback} from "react";
 
 export default function StoreCategories() {
     const {state, dispatch} = useAppContext()
 
+    const memoizedFetchCategories = useCallback(() => {
+        fetchCategories(dispatch);
+    }, [dispatch]);
+
     useEffect(() => {
-        fetchCategories(dispatch)
-    },[])
+        memoizedFetchCategories();
+    }, [memoizedFetchCategories]);
 
     const items = state.categories.map((category) =>
         <div style={state.selectedCategory?.id === category.id ? {backgroundColor: "var(--accent-color)"} : {}}

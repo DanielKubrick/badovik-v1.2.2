@@ -6,6 +6,7 @@ import {
   ArrowLeft, ShoppingCart, Heart, Star, Truck, Shield, RotateCcw, 
   Share, ChevronDown, ChevronUp, ZoomIn, X, ChevronLeft, ChevronRight 
 } from "lucide-react";
+import Image from "next/image";
 
 type Product = {
   id: number;
@@ -240,11 +241,13 @@ export default function ProductPage() {
         {/* Image Gallery */}
         <div className="telegram-image-gallery">
           <div className="telegram-main-image-container">
-            <img
+            <Image
               src={product.images[selectedImage]?.src || "/placeholder.jpg"}
-              alt={product.name}
+              alt={product.images[selectedImage]?.alt || product.name}
               className="telegram-main-image"
               onClick={() => setShowImageModal(true)}
+              width={500} // Укажите подходящую ширину
+              height={500} // Укажите подходящую высоту
             />
             <button
               onClick={() => setShowImageModal(true)}
@@ -281,10 +284,12 @@ export default function ProductPage() {
                     selectedImage === index ? "telegram-thumbnail-active" : ""
                   }`}
                 >
-                  <img
+                  <Image
                     src={image.src}
-                    alt={`${product.name} ${index + 1}`}
+                    alt={image.alt || `${product.name} ${index + 1}`}
                     className="telegram-thumbnail-image"
+                    width={80} // Укажите подходящую ширину
+                    height={80} // Укажите подходящую высоту
                   />
                 </button>
               ))}
@@ -465,10 +470,12 @@ export default function ProductPage() {
             >
               <X className="telegram-close-icon" />
             </button>
-            <img
+            <Image
               src={product.images[selectedImage]?.src}
-              alt={product.name}
+              alt={product.images[selectedImage]?.alt || product.name}
               className="telegram-modal-image"
+              width={800} // Укажите подходящую ширину для модального окна
+              height={800} // Укажите подходящую высоту для модального окна
             />
             {product.images.length > 1 && (
               <>

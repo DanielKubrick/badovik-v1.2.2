@@ -3,7 +3,7 @@ module.exports = {
     name: 'mini-woo',
     script: 'npm',
     args: 'start',
-    cwd: '/opt/mini-woo',
+    cwd: '/root/miniwoo',
     env: {
       PORT: 3001,
       NODE_ENV: 'production'

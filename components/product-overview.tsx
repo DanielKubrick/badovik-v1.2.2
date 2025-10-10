@@ -1,5 +1,6 @@
 "use client"
 import {useAppContext} from "@/providers/context-provider";
+import Image from "next/image";
 
 export default function ProductOverview() {
     const {state, dispatch} = useAppContext()
@@ -9,10 +10,10 @@ export default function ProductOverview() {
     const id = product.id
     const cartItem = state.cart.get(id)
     const images = product.images.map((image, index) =>
-        <img className="product-photo" key={index} src={image.src} alt={image.alt || ""}/>
+        <Image className="product-photo" key={index} src={image.src} alt={image.alt || product.name} width={200} height={200}/> // Добавлен alt и размеры
     )
     if (images.length === 0)
-        images.push(<img className="product-photo" key={0} src="/no-image.png" alt="no image"/>)
+        images.push(<Image className="product-photo" key={0} src="/no-image.png" alt="no image" width={200} height={200}/>) // Добавлен alt и размеры
 
     return (
         <div className={`product-overview ${cartItem ? "selected" : ""}`}>

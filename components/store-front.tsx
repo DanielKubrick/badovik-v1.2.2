@@ -1,16 +1,20 @@
 "use client"
 import StoreItem, {StoreItemSkeleton} from "@/components/store-item";
 import {fetchProducts, useAppContext} from "@/providers/context-provider";
-import {useEffect} from "react";
+import {useEffect, useCallback} from "react";
 import StoreCategories from "@/components/store-categories";
 import InfiniteScroll from "@/components/infinite-scroll";
 
 export default function StoreFront() {
     const {state, dispatch} = useAppContext()
 
+    const memoizedFetchProducts = useCallback(() => {
+        fetchProducts(state, dispatch);
+    }, [state, dispatch]);
+
     useEffect(() => {
-        fetchProducts(state, dispatch)
-    }, [state.selectedCategory])
+        memoizedFetchProducts();
+    }, [state.selectedCategory, memoizedFetchProducts])
 
     const items = state.loading && state.products.length === 0 ?
         Array(12).fill(0).map((value, index) => <StoreItemSkeleton key={`n${index}`}/>) :
@@ -21,7 +25,7 @@ export default function StoreFront() {
             <StoreCategories/>
             {items}
             <InfiniteScroll
-                callback={() => fetchProducts(state, dispatch)}
+                callback={memoizedFetchProducts}
                 hasMore={state.hasMore}
                 loading={state.loading}
             />

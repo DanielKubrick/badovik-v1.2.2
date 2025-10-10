@@ -1,6 +1,7 @@
 "use client";
 import { useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 type Product = {
   id: number;
@@ -20,24 +21,27 @@ export default function ProductCard({ product, onAddToCart }: ProductCardProps) 
   const [isLoading, setIsLoading] = useState(false);
 
   const price = typeof product.price === "string" ? parseFloat(product.price) : product.price;
+  const productImage = product.images?.[0]?.src; // Вынесено в переменную
 
   const handleAddToCart = useCallback(async (e: React.MouseEvent) => {
     e.stopPropagation();
     
+    const productData = {
+      id: product.id,
+      name: product.name,
+      price: price,
+      image: productImage
+    };
+    
     try {
       setIsLoading(true);
-      await onAddToCart({
-        id: product.id,
-        name: product.name,
-        price: price,
-        image: product.images?.[0]?.src
-      }, 1);
+      await onAddToCart(productData, 1);
     } catch (error) {
       console.error("Failed to add to cart:", error);
     } finally {
       setIsLoading(false);
     }
-  }, [product, onAddToCart, price]);
+  }, [onAddToCart, product.id, product.name, price, productImage]);
 
   const handleCardClick = () => {
     router.push(`/product/${product.id}`);
@@ -51,11 +55,13 @@ export default function ProductCard({ product, onAddToCart }: ProductCardProps) 
       {/* Large Image */}
       <div className="telegram-card-image">
         {product.images?.[0]?.src ? (
-          <img
+          <Image
             src={product.images[0].src}
             alt={product.name}
             className="telegram-product-image"
             loading="lazy"
+            width={200} // Укажите подходящую ширину
+            height={200} // Укажите подходящую высоту
           />
         ) : (
           <div className="telegram-no-image">

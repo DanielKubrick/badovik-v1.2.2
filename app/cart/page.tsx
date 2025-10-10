@@ -5,6 +5,7 @@ import { ArrowLeft, Plus, Minus, Trash2, ShoppingCart } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useToastSuccess, useToastError } from "@/components/ui/ToastContainer";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
+import Image from "next/image";
 
 const formatPrice = (price: number): string => {
   if (price === 0) return 'Уточнить цену';
@@ -99,10 +100,12 @@ export default function CartPage() {
                 {/* Product Image */}
                 <div className="telegram-cart-item-image">
                   {item.image ? (
-                    <img 
+                    <Image 
                       src={item.image} 
-                      alt={item.name}
+                      alt={item.name} // Добавлен alt атрибут
                       className="telegram-product-image"
+                      width={80} // Укажите подходящую ширину
+                      height={80} // Укажите подходящую высоту
                     />
                   ) : (
                     <div className="telegram-product-image-placeholder">
